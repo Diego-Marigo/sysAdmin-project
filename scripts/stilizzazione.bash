@@ -60,10 +60,7 @@ come_errore() { _stilizza $_ERRORE $_CHIUDI_COLORAZIONE "$@"; }
 come_avviso() { _stilizza $_AVVISO $_CHIUDI_COLORAZIONE "$@"; }
 
 # 4. Presentazione del modulo in caso di chiamata diretta
-file_path="$(readlink --canonicalize "${BASH_SOURCE[0]}")"
-file_dir="$(dirname "${file_path}")"
-source "${file_dir}/codice_base.bash"
-source "${file_dir}/stampa.bash"
+file_dir="$(dirname "${BASH_SOURCE[0]}")"
 
 function _presentazione_script() {
     printlines "" \

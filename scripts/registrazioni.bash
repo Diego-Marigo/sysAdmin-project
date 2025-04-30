@@ -20,8 +20,7 @@
 
 # Se il registro non è definito, allora usa il valore di default
 if [[ -z "${registro}" ]]; then
-    file_path="$(readlink --canonicalize "${BASH_SOURCE[0]}")"
-    file_dir="$(dirname "${file_path}")"
+    file_dir="$(dirname "${BASH_SOURCE[0]}")"
     registro="${file_dir}/.log.txt"
 fi
 

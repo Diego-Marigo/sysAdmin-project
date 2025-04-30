@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 # File di ingresso del programma
 
-file_path="$(readlink --canonicalize "${BASH_SOURCE[0]}")"
-file_dir="$(dirname "${file_path}")"
+file_dir="$(dirname "${BASH_SOURCE[0]}")"
 
+# Librerie ausiliarie
 source "${file_dir}/codice_base.bash"
 source "${file_dir}/stampa.bash"
 source "${file_dir}/stilizzazione.bash"
 source "${file_dir}/registrazioni.bash"
-source "${file_dir}/schermate.bash"
+
+# Librerie delle schermate
+source "${file_dir}/schermate/schermate.bash"
 
 # Funzione di ingresso
 function main() {
@@ -16,7 +18,7 @@ function main() {
     while [[ $# -gt 0 ]]; do # while len(args) > 0:
         case $1 in           #     match args[0]
         -h | --help)
-            schermata_del_manuale
+            schermata_manuale
             ;;
         -v | --version)
             println "${versione}"
@@ -35,13 +37,15 @@ function main() {
             export NO_COLOR=1
             ;;
         *)
-            # argomento non riconosciuto???
             ARGS+=("$1")
-            #!Aggiungi un avviso che mostri l'argomento sbagliato ed esxi
+            println "$(come_errore "Errore:") argomento non riconosciuto: $1" >&2
+            println "Usa $(come_avviso "--help") per vedere l'elenco degli argomenti disponibili." >&2
+            exit 1
             ;;
         esac
         shift # args = args[1:]
     done
+    registra_info "Avvio del programma"
     schermata_principale
 }
 
