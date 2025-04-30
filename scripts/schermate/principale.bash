@@ -5,7 +5,7 @@ function schermata_principale() {
         "$(con_grassetto "        MENU AMMINISTRATORE")" \
         "$(con_grassetto "====================================")" \
         "1) Monitoraggio sistema" \
-        "$(con_sbarramento "2) Gestione disco")" \
+        "2) Gestione disco" \
         "$(con_sbarramento "3) Gestione pacchetti")" \
         "$(con_sbarramento "4) Gestione servizi")" \
         "$(con_sbarramento "5) Gestione rete")" \
@@ -38,7 +38,7 @@ function schermata_principale() {
         operazioni_di_sistema
         ;;
     q | Q)
-        println "Chiusura menù"
+        println "Chiusura script"
         exit 0
         ;;
     *)
@@ -48,4 +48,3 @@ function schermata_principale() {
         ;;
     esac
 }
-

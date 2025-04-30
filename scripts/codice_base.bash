@@ -1,8 +1,10 @@
 # Questo file è solo da importare e mai lanciare, perciò una shebang non è appropriata
 #
 
-export versione="0.0.1"
-export nome_programma_sysadmin="NOME_DA_DEFINIRE"
+export versione="1.0"
+export nome_programma="ADMINHELP"
+export autori="Diego Marigo, Nicola Miotto"
+
 
 function se_chiamato_come_script_lanciare() {
     local funzione="$1"

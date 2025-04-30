@@ -46,6 +46,29 @@ function main() {
         shift # args = args[1:]
     done
     registra_info "Avvio del programma"
+    clear
+    printlines "" \
+        "$(con_grassetto "====================================")" \
+        "$(con_grassetto "          ${nome_programma}")" \
+        "$(con_grassetto "====================================")" \
+        "$(con_grassetto "Versione:") ${versione}" \
+        "$(con_grassetto "Autori:") ${autori}" \
+        "$(con_grassetto "Descrizione:")" \
+        "Programma di amministrazione per sistemi Linux." \
+        "Gli autori non si assumono la responsabilità delle azioni eseguite." \
+        ""\
+        "$(come_avviso "Questo programma è destinato ad essere eseguito come root.")" \
+        "$(con_grassetto "====================================")" \ ""
+        
+        if [ "$(id -u)" -eq 0 ]; then
+            println "Autenticazione come root riuscita."
+        else
+            println "$(come_errore "Autenticazione come root non riuscita.")"
+            exit 1;
+        fi
+    
+    println "Premi un tasto per continuare..."
+    read -r -n 1 
     schermata_principale
 }
 
