@@ -23,7 +23,7 @@ function monitoraggio() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MONITORAGGIO CPU")" \
             "$(con_grassetto "====================================")"
-        top -ncols 10 | head -n 20  # Funzione per il monitoraggio della CPU
+        top -ncols 10 | head -n 20 
         printlines "$(con_grassetto "====================================")" \
         ;;
     2 | monitoraggio_ram)
@@ -56,7 +56,7 @@ function monitoraggio() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MONITORAGGIO RETE")" \
             "$(con_grassetto "====================================")"
-        ip addr show
+        netstat
         printlines "$(con_grassetto "====================================")" \
         ;;
     5 | monitoraggio_servizi)

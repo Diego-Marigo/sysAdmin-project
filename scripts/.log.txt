@@ -1,0 +1,10 @@
+16:12:15 [INFO]  Avvio del programma
+16:12:22 [INFO]  Avvio del programma
+16:12:30 [INFO]  Avvio del programma
+16:20:37 [INFO]  Avvio del programma
+16:20:42 [INFO]  Avvio del programma
+16:29:24 [INFO]  Avvio del programma
+16:29:41 [INFO]  Avvio del programma
+16:30:02 [INFO]  Avvio del programma
+16:30:15 [INFO]  Avvio del programma
+16:30:28 [INFO]  Avvio del programma

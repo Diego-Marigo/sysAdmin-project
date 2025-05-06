@@ -6,7 +6,7 @@ function schermata_principale() {
         "$(con_grassetto "====================================")" \
         "1) Monitoraggio sistema" \
         "2) Gestione disco" \
-        "$(con_sbarramento "3) Gestione pacchetti")" \
+        "3) Gestione pacchetti" \
         "$(con_sbarramento "4) Gestione servizi")" \
         "$(con_sbarramento "5) Gestione rete")" \
         "$(con_sbarramento "6) Gestione utenti")" \
@@ -38,7 +38,15 @@ function schermata_principale() {
         operazioni_di_sistema
         ;;
     q | Q)
-        println "Chiusura script"
+        clear
+        println "$(con_grassetto "====================================")"
+        println "$(con_grassetto "        Uscita dal programma")"
+        println "$(con_grassetto "====================================")"
+        println "Grazie per aver utilizzato il nostro programma!"
+        println "Speriamo di rivederti presto!"
+        println ""
+        println "$(come_avviso "Uscita in corso...")"
+        println "===================================="
         exit 0
         ;;
     *)
@@ -48,3 +56,4 @@ function schermata_principale() {
         ;;
     esac
 }
+

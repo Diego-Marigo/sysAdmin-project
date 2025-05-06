@@ -19,6 +19,7 @@ function main() {
         case $1 in           #     match args[0]
         -h | --help)
             schermata_manuale
+            exit 0
             ;;
         -v | --version)
             println "${versione}"
