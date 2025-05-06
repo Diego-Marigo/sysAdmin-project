@@ -21,8 +21,32 @@ La struttura del progetto è organizzata in diverse directory e file, ognuno con
 - `LICENSE`: File di licenza del progetto.
 
 ## Esecuzione script
+
+### Requisiti di sistema
+Pacchetti necessari per l'esecuzione del programma:
+- `apt`: Per la gestione dei pacchetti.
+- `bash`: Per l'esecuzione degli script.
+- `df`: Per visualizzare lo spazio su disco disponibile.
+- `dpkg`: Per la gestione dei pacchetti.
+- `fdisk`: Per la gestione delle partizioni del disco.
+- `free`: Per visualizzare la memoria disponibile.
+- `fsck`: Per controllare e riparare i file system.
+- `hdparm`: Per monitorare le prestazioni dei dischi.
+- `lvdisplay`: Per visualizzare le informazioni sui volumi logici.
+- `mkfs.ext4`: Per formattare le partizioni in ext4.
+- `mdadm`: Per gestire i RAID software.
+- `netstat`: Per visualizzare le connessioni di rete.
+- `smartctl`: Per monitorare lo stato di salute dei dischi.
+- `top`: Per monitorare le risorse di sistema in tempo reale.
+- `who`: Per visualizzare gli utenti connessi al sistema.
+
+### Installazione dei pacchetti
 Per eseguire il programma, è necessario scaricarlo da GitHub e avviarlo con permessi di superutente (sudo). Seguire questi passaggi:
 
+//TODO: Aggiungere i comandi per installare i pacchetti necessari
+
+
+### Installazione ed esecuzione del programma
 1. Clonare il repository GitHub:
     ```bash
     git clone https://github.com/Diego-Marigo/sysAdmin-project.git
@@ -43,8 +67,8 @@ Per eseguire il programma, è necessario scaricarlo da GitHub e avviarlo con per
     sudo ./eseguibile.bash
     ```
 
-Sono inoltre disponibili dei comandi aggiuntivi che possono essere passati come argomenti allo script per personalizzare il comportamento del programma. Per esempio:
-
+### Argomenti dello script
+Lo script principale `eseguibile.bash` accetta diversi argomenti per eseguire operazioni specifiche. Gli argomenti disponibili sono:
 - `--help` | `-h`: Mostra l'elenco dei comandi disponibili e una breve descrizione.
 - `--version` | `-v`: Mostra la versione corrente del programma.
 - `--registro` | `-r`: //TODO
