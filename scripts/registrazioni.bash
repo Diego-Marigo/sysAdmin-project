@@ -1,6 +1,6 @@
 # Libreria per le registrazioni
 #
-# Il registro, definito su $registro, defaulta su "./.log.txt"
+# Il registro, definito su $registro, defaulta su "./log.txt"
 # Usa apri_registro() per leggerlo, ovunque esso sia
 # Usa registra_info/successo/errore/avviso per lanciare una registrazione
 #
@@ -21,7 +21,7 @@
 # Se il registro non è definito, allora usa il valore di default
 if [[ -z "${registro}" ]]; then
     file_dir="$(dirname "${BASH_SOURCE[0]}")"
-    registro="${file_dir}/.log.txt"
+    registro="${file_dir}/log.txt"
 fi
 
 # Eliminazione di eventuali alias. "2>/dev/null" significa "silenzia se fallisce"
