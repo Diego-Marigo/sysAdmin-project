@@ -56,4 +56,3 @@ function schermata_principale() {
         ;;
     esac
 }
-

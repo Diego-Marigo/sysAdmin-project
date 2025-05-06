@@ -23,28 +23,36 @@ La struttura del progetto è organizzata in diverse directory e file, ognuno con
 ## Esecuzione script
 
 ### Requisiti di sistema
-Pacchetti necessari per l'esecuzione del programma:
+Istruzioni utilizzate all'interno del programma:
 - `apt`: Per la gestione dei pacchetti.
 - `bash`: Per l'esecuzione degli script.
+- `cut`: Per elaborare i file di testo.
+- `chage`: Per modificare le informazioni sulle password degli utenti.
+- `chmod`: Per modificare i permessi dei file.
+- `chpasswd`: Per cambiare le password degli utenti.
 - `df`: Per visualizzare lo spazio su disco disponibile.
 - `dpkg`: Per la gestione dei pacchetti.
 - `fdisk`: Per la gestione delle partizioni del disco.
 - `free`: Per visualizzare la memoria disponibile.
 - `fsck`: Per controllare e riparare i file system.
 - `hdparm`: Per monitorare le prestazioni dei dischi.
-- `lvdisplay`: Per visualizzare le informazioni sui volumi logici.
 - `mkfs.ext4`: Per formattare le partizioni in ext4.
-- `mdadm`: Per gestire i RAID software.
 - `netstat`: Per visualizzare le connessioni di rete.
 - `smartctl`: Per monitorare lo stato di salute dei dischi.
 - `top`: Per monitorare le risorse di sistema in tempo reale.
+- `useradd`: Per aggiungere nuovi utenti al sistema.
+- `userdel`: Per rimuovere utenti dal sistema.
+- `usermod`: Per modificare le informazioni degli utenti.
 - `who`: Per visualizzare gli utenti connessi al sistema.
 
-### Installazione dei pacchetti
-Per eseguire il programma, è necessario scaricarlo da GitHub e avviarlo con permessi di superutente (sudo). Seguire questi passaggi:
-
-//TODO: Aggiungere i comandi per installare i pacchetti necessari
-
+#### Installazione dei requisiti
+Assicurarsi di avere installato i seguenti pacchetti sul sistema:
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install bash coreutils util-linux procps net-tools smartmontools
+```
+Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux, ma è sempre meglio verificarne la presenza.
 
 ### Installazione ed esecuzione del programma
 1. Clonare il repository GitHub:

@@ -9,15 +9,12 @@
         "3) Visualizza dischi" \
         "4) Formatta disco" \
         "5) Controlla disco" \
-        "6) Controlla spazio disco" \
-        "7) Controlla file system" \
-        "8) Controlla partizioni" \
-        "9) Controlla RAID" \
-        "10) Controlla LVM" \
+        "6) Controlla file system" \
+        "7) Controlla partizioni" \
         "q) Back" \
         "$(con_grassetto "====================================")"
 
-    read -rp "Seleziona un modulo [1-10,q]: " disk_choice
+    read -rp "Seleziona un modulo [1-7,q]: " disk_choice
     case $disk_choice in
     1 | aggiungi_disco)
         clear
@@ -28,7 +25,7 @@
         read -rp "Inserisci il nome del disco da aggiungere (es. /dev/sdX): " disco
 
         registra_info "Aggiungi disco $disco"
-        fdisk -l "$disco"
+        sudo fdisk -l "$disco"
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \
@@ -47,7 +44,7 @@
         read -rp "Inserisci il nome del disco da rimuovere (es. /dev/sdX): " disco
         
         registra_info "Rimuovi disco $disco"
-        fdisk -l "$disco"
+        sudo fdisk -l "$disco"
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \
@@ -86,7 +83,7 @@
 
         if [[ $conferma == [yY] ]]; then
             registra_info "Formatta disco $disco"
-            mkfs.ext4 "$disco"
+            sudo mkfs.ext4 "$disco"
         else
             println "$(come_avviso "Operazione annullata.")"
         fi
@@ -113,20 +110,7 @@
         sleep 1
         printlines "$(con_grassetto "====================================")" \
         ;;
-    6 | controlla_spazio_disco)
-        clear
-        printlines "" \
-            "$(con_grassetto "====================================")" \
-            "$(con_grassetto "        CONTROLLA SPAZIO DISCO")" \
-            "$(con_grassetto "====================================")"    
-
-        registra_info "Controlla spazio disco"
-        df -h    
-
-        sleep 1
-        printlines "$(con_grassetto "====================================")" \
-        ;;
-    7 | controlla_file_system)
+    6 | controlla_file_system)
         clear
         printlines "" \
             "$(con_grassetto "====================================")" \
@@ -140,7 +124,7 @@
         sleep 1
         printlines "$(con_grassetto "====================================")" \
         ;;
-    8 | controlla_partizioni)
+    7 | controlla_partizioni)
         clear
         printlines "" \
             "$(con_grassetto "====================================")" \
@@ -150,34 +134,6 @@
 
         registra_info "Controlla partizioni $disco"
         fdisk -l "$disco"
-
-        sleep 1
-        printlines "$(con_grassetto "====================================")" \
-        ;;
-    9 | controlla_raid)
-        clear
-        printlines "" \
-            "$(con_grassetto "====================================")" \
-            "$(con_grassetto "        CONTROLLA RAID")" \
-            "$(con_grassetto "====================================")"
-        read -rp "Inserisci il nome del RAID da controllare (es. /dev/mdX): " raid
-
-        registra_info "Controlla RAID $raid"
-        mdadm --detail "$raid"
-
-        sleep 1
-        printlines "$(con_grassetto "====================================")" \
-        ;;
-    10 | controlla_lvm)
-        clear
-        printlines "" \
-            "$(con_grassetto "====================================")" \
-            "$(con_grassetto "        CONTROLLA LVM")" \
-            "$(con_grassetto "====================================")"
-        read -rp "Inserisci il nome del LVM da controllare (es. /dev/vgX/lvX): " lvm
-
-        registra_info "Controlla LVM $lvm"
-        lvdisplay "$lvm"
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \

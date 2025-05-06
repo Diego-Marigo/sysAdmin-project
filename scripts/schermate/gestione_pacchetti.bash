@@ -22,7 +22,7 @@ function gestione_pacchetti(){
         read -rp "Inserisci il nome del pacchetto da installare: " pacchetto
                 
         registra_info "Installa pacchetto $pacchetto"
-        apt install "$pacchetto"
+        sudo apt install "$pacchetto"
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \
@@ -36,7 +36,7 @@ function gestione_pacchetti(){
         read -rp "Inserisci il nome del pacchetto da rimuovere: " pacchetto
 
         registra_info "Rimuovi pacchetto $pacchetto"
-        apt remove "$pacchetto"
+        sudo apt remove "$pacchetto"
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \
@@ -49,8 +49,8 @@ function gestione_pacchetti(){
             "$(con_grassetto "====================================")"
 
         registra_info "Aggiorna pacchetti"
-        apt update
-        apt upgrade -y
+        sudo apt update
+        sudo apt upgrade -y
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \
@@ -63,7 +63,7 @@ function gestione_pacchetti(){
             "$(con_grassetto "====================================")"
         
         registra_info "Elenco pacchetti installati"
-        dpkg --get-selections | grep -v deinstall
+        sudo dpkg --get-selections | grep -v deinstall
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \
