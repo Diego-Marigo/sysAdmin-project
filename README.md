@@ -23,7 +23,7 @@ La struttura del progetto è organizzata in diverse directory e file, ognuno con
 ## Esecuzione script
 
 ### Requisiti di sistema
-Istruzioni utilizzate all'interno del programma:
+Pacchetti utilizzati all'interno del programma:
 - `apt`: Per la gestione dei pacchetti.
 - `bash`: Per l'esecuzione degli script.
 - `cut`: Per elaborare i file di testo.
@@ -36,10 +36,19 @@ Istruzioni utilizzate all'interno del programma:
 - `free`: Per visualizzare la memoria disponibile.
 - `fsck`: Per controllare e riparare i file system.
 - `hdparm`: Per monitorare le prestazioni dei dischi.
+- `ifconfig`: Per visualizzare e configurare le interfacce di rete.
+- `iftop`: Per monitorare il traffico di rete in tempo reale.
+- `ip`: Per visualizzare e configurare le interfacce di rete.
 - `mkfs.ext4`: Per formattare le partizioni in ext4.
 - `netstat`: Per visualizzare le connessioni di rete.
+- `reboot`: Per riavviare il sistema.
+- `rsync`: Per sincronizzare file e directory.
 - `smartctl`: Per monitorare lo stato di salute dei dischi.
+- `systemctl`: Per gestire i servizi di sistema.
+- `shutdown`: Per spegnere o riavviare il sistema.
+- `tail`: Per visualizzare le ultime righe di un file.
 - `top`: Per monitorare le risorse di sistema in tempo reale.
+- `ufw`: Per gestire il firewall.
 - `useradd`: Per aggiungere nuovi utenti al sistema.
 - `userdel`: Per rimuovere utenti dal sistema.
 - `usermod`: Per modificare le informazioni degli utenti.
@@ -50,7 +59,7 @@ Assicurarsi di avere installato i seguenti pacchetti sul sistema:
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install bash coreutils util-linux procps net-tools smartmontools
+sudo apt install apt bash cut chage chmod chpasswd df dpkg fdisk free fsck hdparm ifconfig iftop ip mkfs.ext4 netstat reboot rsync smartctl systemctl shutdown tail top ufw useradd userdel usermod who
 ```
 Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux, ma è sempre meglio verificarne la presenza.
 

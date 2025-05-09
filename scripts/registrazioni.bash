@@ -54,5 +54,5 @@ function registra_debug() {
 
 # 2. Funzione di lettura
 function apri_registro() {
-    "${EDITOR}" "${registro}"
+    cat "${registro}"
 }

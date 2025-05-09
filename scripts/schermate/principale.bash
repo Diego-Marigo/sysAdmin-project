@@ -7,14 +7,15 @@ function schermata_principale() {
         "1) Monitoraggio sistema" \
         "2) Gestione disco" \
         "3) Gestione pacchetti" \
-        "$(con_sbarramento "4) Gestione servizi")" \
-        "$(con_sbarramento "5) Gestione rete")" \
-        "$(con_sbarramento "6) Gestione utenti")" \
-        "$(con_sbarramento "7) Operazioni di sistema")" \
+        "4) Gestione servizi" \
+        "5) Gestione rete" \
+        "6) Gestione utenti" \
+        "7) Operazioni di sistema" \
+        "8) Visualizza log del programma" \
         "q) Quit" \
         "$(con_grassetto "====================================")"
 
-    read -rp "Seleziona un modulo [1-7,q]: " principal_choice
+    read -rp "Seleziona un'opzione [1-8,q]: " principal_choice
     case $principal_choice in
     1 | monitoraggio | schermata_per_il_monitoraggio_di_sistema)
         monitoraggio
@@ -36,6 +37,20 @@ function schermata_principale() {
         ;;
     7 | operazioni_di_sistema | schermata_per_il_registro_di_sistema)
         operazioni_di_sistema
+        ;;
+    8 | visualizza_log_del_programma | schermata_per_la_visualizzazione_dei_log)
+        clear
+        println "$(con_grassetto "====================================")"
+        println "$(con_grassetto "        VISUALIZZA LOG")"
+        println "$(con_grassetto "====================================")"
+        println "$(come_avviso "Visualizzazione del registro...")"
+        println ""
+        apri_registro
+        println ""
+        println "$(con_grassetto "====================================")"
+        read -n 1 -s -r -p "Premi un tasto per continuare..."
+        println ""
+        schermata_principale
         ;;
     q | Q)
         clear

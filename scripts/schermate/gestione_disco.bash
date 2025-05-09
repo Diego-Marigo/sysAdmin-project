@@ -11,10 +11,18 @@
         "5) Controlla disco" \
         "6) Controlla file system" \
         "7) Controlla partizioni" \
+        "8) Crea cartella" \
+        "9) Rimuovi cartella" \
+        "10) Visualizza contenuto cartella" \
+        "11) Crea file" \
+        "12) Rimuovi file" \
+        "13) Visualizza contenuto file" \
+        "14) Backup cartella" \
+        "15) Ripristina cartella" \
         "q) Back" \
         "$(con_grassetto "====================================")"
 
-    read -rp "Seleziona un modulo [1-7,q]: " disk_choice
+    read -rp "Seleziona un'opzione [1-15,q]: " disk_choice
     case $disk_choice in
     1 | aggiungi_disco)
         clear
@@ -134,6 +142,118 @@
 
         registra_info "Controlla partizioni $disco"
         fdisk -l "$disco"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    8 | crea_cartella)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        CREA CARTELLA")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory con il nome della cartella da creare: " cartella
+
+        registra_info "Crea cartella $cartella"
+        mkdir "$cartella"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    9 | rimuovi_cartella)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        RIMUOVI CARTELLA")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory con il nome della cartella da rimuovere: " cartella
+
+        registra_info "Rimuovi cartella $cartella"
+        rm -r "$cartella"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    10 | visualizza_cartelle)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        VISUALIZZA CARTELLE")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory da visualizzare: " cartella
+
+        registra_info "Visualizza cartelle $cartella"
+        ls "$cartella"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    11 | crea_file)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        CREA FILE")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory con il nome del file da creare: " file
+
+        registra_info "Crea file $file"
+        touch "$file"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    12 | rimuovi_file)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        RIMUOVI FILE")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory con il nome del file da rimuovere: " file
+
+        registra_info "Rimuovi file $file"
+        rm "$file"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    13 | visualizza_file)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        VISUALIZZA FILE")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory con il nome del file da visualizzare: " file
+
+        registra_info "Visualizza file $file"
+        cat "$file"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    14 | backup_file)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        BACKUP CARTELLA")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory con il nome della cartella da fare il backup: " cartella
+
+        registra_info "Backup cartella $cartella"
+        rsync -av --delete --progress "$cartella" "$cartella.bak"
+
+        sleep 1
+        printlines "$(con_grassetto "====================================")" \
+        ;;
+    15 | ripristina_file)
+        clear
+        printlines "" \
+            "$(con_grassetto "====================================")" \
+            "$(con_grassetto "        RIPRISTINA CARTELLA")" \
+            "$(con_grassetto "====================================")"
+        read -rp "Inserisci la directory con il nome della cartella da ripristinare: " cartella
+
+        registra_info "Ripristina cartella $cartella"
+        rsync -av --delete --progress "$cartella.bak" "$cartella"
 
         sleep 1
         printlines "$(con_grassetto "====================================")" \

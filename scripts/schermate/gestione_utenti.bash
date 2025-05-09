@@ -14,6 +14,7 @@ function gestione_utenti(){
         "8) Modifica scadenza password" \
         "9) Modifica scadenza account" \
         "10) Modifica stato account" \
+        "q) Back" \
         "$(con_grassetto "====================================")"
 
     read -rp "Seleziona un'opzione [1-10,q]: " user_choice

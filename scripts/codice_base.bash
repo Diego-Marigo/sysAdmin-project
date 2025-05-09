@@ -1,6 +1,3 @@
-# Questo file è solo da importare e mai lanciare, perciò una shebang non è appropriata
-#
-
 export versione="1.0"
 export nome_programma="ADMINHELP"
 export autori="Diego Marigo, Nicola Miotto"
@@ -9,9 +6,9 @@ export autori="Diego Marigo, Nicola Miotto"
 function se_chiamato_come_script_lanciare() {
     local funzione="$1"
     shift
-    local caller="${BASH_SOURCE[1]}" # file che ha importato la funzione
+    local caller="${BASH_SOURCE[1]}"
 
-    if [[ "${caller}" == "${0}" ]]; then # eseguito come script
+    if [[ "${caller}" == "${0}" ]]; then 
         "$funzione" "$@"
     fi
 }
@@ -19,9 +16,9 @@ function se_chiamato_come_script_lanciare() {
 function se_chiamato_come_libreria_lanciare() {
     local funzione="$1"
     shift
-    local caller="${BASH_SOURCE[1]}" # file che ha importato la funzione
+    local caller="${BASH_SOURCE[1]}" 
 
-    if [[ "${caller}" != "${0}" ]]; then # eseguito come script
+    if [[ "${caller}" != "${0}" ]]; then 
         "$funzione" "$@"
     fi
 }

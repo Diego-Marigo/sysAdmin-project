@@ -8,10 +8,10 @@ function gestione_pacchetti(){
         "2) Rimuovi pacchetto" \
         "3) Aggiorna pacchetti" \
         "4) Elenco pacchetti installati" \
-        "q) Quit" \
+        "q) Back" \
         "$(con_grassetto "====================================")"
 
-    read -rp "Seleziona un modulo [1-7,q]: " package_choice
+    read -rp "Seleziona un'opzione [1-7,q]: " package_choice
     case $package_choice in
     1 | installa_pacchetto)
         clear

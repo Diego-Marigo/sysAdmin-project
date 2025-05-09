@@ -11,9 +11,9 @@ function monitoraggio() {
         "5) Monitoraggio Servizi" \
         "6) Monitoraggio Utenti" \
         "q) Back" \
-        "$(con_grassetto "====================================")" \
+        "$(con_grassetto "====================================")"
     
-    read -rp "Seleziona un modulo [1-6,q]: " monitor_choice
+    read -rp "Seleziona un'opzione [1-6,q]: " monitor_choice
     case $monitor_choice in
     1 | monitoraggio_cpu)
         registra_info "Monitoraggio CPU"

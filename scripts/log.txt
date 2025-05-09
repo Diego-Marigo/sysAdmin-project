@@ -1,1 +1,14 @@
 16:31:51 [INFO]  Avvio del programma
+17:25:11 [INFO]  Avvio del programma
+17:25:27 [INFO]  Avvio del programma
+17:34:42 [INFO]  Avvio del programma
+17:35:50 [INFO]  Avvio del programma
+17:36:28 [INFO]  Avvio del programma
+17:37:19 [INFO]  Avvio del programma
+17:37:59 [INFO]  Avvio del programma
+17:38:26 [INFO]  Avvio del programma
+17:38:39 [INFO]  Visualizza log di sistema
+17:38:45 [INFO]  Visualizza log di accesso
+17:38:48 [INFO]  Visualizza log di sicurezza
+17:38:53 [INFO]  Visualizza log di rete
+17:38:58 [INFO]  Visualizza log di utenti
