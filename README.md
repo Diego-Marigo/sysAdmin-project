@@ -3,9 +3,7 @@
 # Progetto Laboratorio ed Amministrazione di sistema
 
 **Autori**: Diego Marigo, Nicola Miotto
-
 **Versione:** 1.0
-
 **Versione Sistema Operativo:** Linux
 
 ### Descrizione:
