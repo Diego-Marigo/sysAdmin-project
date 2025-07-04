@@ -211,7 +211,7 @@ Lo script principale `eseguibile.bash` accetta diversi argomenti per eseguire op
 ## **Codice progetto**
 Il codice del progetto è scritto in Bash e utilizza le funzionalità di scripting per gestire le operazioni di amministrazione del sistema. Le funzioni sono modulari e possono essere facilmente estese o modificate per aggiungere nuove funzionalità. Il codice è organizzato in moduli per facilitare la manutenzione e la comprensione.
 
-## Screenshot del programma
+## **Screenshot del programma**
 Sono inclusi alcuni screenshot del programma in esecuzione per fornire una panoramica delle schermate e delle funzionalità disponibili.
 ### **Screenshot schermata avvio**
 ![Schermata principale](screenshot/output/avvio.png)
