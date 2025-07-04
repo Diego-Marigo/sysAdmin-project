@@ -3,7 +3,7 @@ export nome_programma="ADMINHELP"
 export autori="Diego Marigo, Nicola Miotto"
 
 
-function se_chiamato_come_script_lanciare() {
+function se_chiamato_come_script_lanciare() {       # Funzione per eseguire una funzione se lo script è chiamato direttamente
     local funzione="$1"
     shift
     local caller="${BASH_SOURCE[1]}"
@@ -13,7 +13,7 @@ function se_chiamato_come_script_lanciare() {
     fi
 }
 
-function se_chiamato_come_libreria_lanciare() {
+function se_chiamato_come_libreria_lanciare() {     # Funzione per eseguire una funzione se lo script è chiamato come libreria
     local funzione="$1"
     shift
     local caller="${BASH_SOURCE[1]}" 
@@ -23,7 +23,7 @@ function se_chiamato_come_libreria_lanciare() {
     fi
 }
 
-function ha_genitore_accessibile() {
+function ha_genitore_accessibile() {            # Controlla se il file genitore è accessibile
     local file="$1"
     local dir
     dir="$(dirname "${file}")"

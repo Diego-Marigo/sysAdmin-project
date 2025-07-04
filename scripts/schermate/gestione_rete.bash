@@ -23,7 +23,7 @@ function gestione_rete(){
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        VISUALIZZA CONFIGURAZIONE RETE")" \
             "$(con_grassetto "====================================")"
-        ip addr show
+        sudo ip addr show
         registra_info "Visualizza configurazione di rete"
         sleep 1
         printlines "$(con_grassetto "====================================")"
@@ -59,6 +59,7 @@ function gestione_rete(){
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MODIFICA STATO RETE")" \
             "$(con_grassetto "====================================")"
+        read -rp "Inserisci l'interfaccia di rete da modificare: " interfaccia
         read -rp "Inserisci il nuovo stato della rete (up/down): " stato
         sudo ip link set "$interfaccia" "$stato"
         registra_info "Modifica stato della rete"
@@ -83,6 +84,7 @@ function gestione_rete(){
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MODIFICA STATISTICHE RETE")" \
             "$(con_grassetto "====================================")"
+        read -rp "Inserisci l'interfaccia di rete da modificare: " interfaccia
         read -rp "Inserisci il nuovo valore delle statistiche di rete: " valore
         sudo ifconfig "$interfaccia" "$valore"
         registra_info "Modifica statistiche di rete"
@@ -96,8 +98,16 @@ function gestione_rete(){
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        GESTIONE FIREWALL")" \
             "$(con_grassetto "====================================")"
-        read -rp "Inserisci il comando per gestire il firewall (es. start/stop/status): " comando
-        sudo ufw "$comando"
+        read -rp "Inserisci il comando per gestire il firewall (es. start/stop/status/allow/deny): " comando
+        if [[ "$comando" == "allow" ]]; then
+            read -rp "Inserisci l'indirizzo IP o il dominio da autorizzare: " indirizzo
+            sudo ufw allow "$indirizzo"
+        elif [[ "$comando" == "deny" ]]; then
+            read -rp "Inserisci l'indirizzo IP o il dominio da negare: " indirizzo
+            sudo ufw deny "$indirizzo"
+        else
+            sudo ufw "$comando"
+        fi
         registra_info "Gestione firewall"
         println "$(come_successo "Firewall gestito con $comando.")"
         sleep 1

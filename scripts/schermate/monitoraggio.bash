@@ -23,7 +23,7 @@ function monitoraggio() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MONITORAGGIO CPU")" \
             "$(con_grassetto "====================================")"
-        top -ncols 10 | head -n 20 
+        sudo top -ncols 10 | head -n 20 
         printlines "$(con_grassetto "====================================")" \
         ;;
     2 | monitoraggio_ram)
@@ -34,7 +34,7 @@ function monitoraggio() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MONITORAGGIO RAM")" \
             "$(con_grassetto "====================================")"
-        free -h
+        sudo free -h
         printlines "$(con_grassetto "====================================")" \
         ;;
     3 | monitoraggio_disco)
@@ -56,7 +56,7 @@ function monitoraggio() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MONITORAGGIO RETE")" \
             "$(con_grassetto "====================================")"
-        netstat
+        sudo netstat
         printlines "$(con_grassetto "====================================")" \
         ;;
     5 | monitoraggio_servizi)
@@ -67,7 +67,7 @@ function monitoraggio() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MONITORAGGIO SERVIZI")" \
             "$(con_grassetto "====================================")"
-        systemctl list-units --type=service --state=running
+        sudo systemctl list-units --type=service --state=running
         printlines "$(con_grassetto "====================================")" \
         ;;
     6 | monitoraggio_utenti)
@@ -78,7 +78,7 @@ function monitoraggio() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "        MONITORAGGIO UTENTI")" \
             "$(con_grassetto "====================================")"
-        who
+        sudo who
         printlines "$(con_grassetto "====================================")" \
         ;;
     q | Q)

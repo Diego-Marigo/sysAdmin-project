@@ -10,13 +10,12 @@ function operazioni_di_sistema(){
         "4) Visualizza log di sicurezza" \
         "5) Visualizza log di rete" \
         "6) Visualizza log di pacchetti" \
-        "7) Visualizza log di servizi" \
-        "8) Visualizza log di utenti" \
-        "9) Spegni/riavvia il sistema" \
+        "7) Visualizza log di applicazioni" \
+        "8) Spegni/riavvia il sistema" \
         "q) Back" \
         "$(con_grassetto "====================================")"
 
-    read -rp "Seleziona un'opzione [1-9,q]: " system_choice
+    read -rp "Seleziona un'opzione [1-8,q]: " system_choice
     case $system_choice in
     1 | visualizza_log_di_sistema)
         clear
@@ -84,29 +83,18 @@ function operazioni_di_sistema(){
         sleep 1
         printlines "$(con_grassetto "====================================")"
         ;;
-    7 | visualizza_log_di_servizi)
+    7 | visualizza_log_di_applicazioni)
         clear
         printlines "" \
             "$(con_grassetto "====================================")" \
-            "$(con_grassetto "        VISUALIZZA LOG DI SERVIZI")" \
+            "$(con_grassetto "        VISUALIZZA LOG DI APPLICAZIONI")" \
             "$(con_grassetto "====================================")"
-        tail -n 50 /var/log/syslog
-        registra_info "Visualizza log di servizi"
+        tail -n 50 /var/log/daemon.log
+        registra_info "Visualizza log di applicazioni"
         sleep 1
         printlines "$(con_grassetto "====================================")"
         ;;
-    8 | visualizza_log_di_utenti)
-        clear
-        printlines "" \
-            "$(con_grassetto "====================================")" \
-            "$(con_grassetto "        VISUALIZZA LOG DI UTENTI")" \
-            "$(con_grassetto "====================================")"
-        tail -n 50 /var/log/auth.log
-        registra_info "Visualizza log di utenti"
-        sleep 1
-        printlines "$(con_grassetto "====================================")"
-        ;;
-    9 | spegni_riavvia_il_sistema)
+    8 | spegni_riavvia_il_sistema)
         clear
         printlines "" \
             "$(con_grassetto "====================================")" \
@@ -114,7 +102,7 @@ function operazioni_di_sistema(){
             "$(con_grassetto "====================================")"
         read -rp "Vuoi spegnere o riavviare il sistema? (s/r): " scelta
         if [[ $scelta == "s" ]]; then
-            sudo shutdown now
+            sudo shutdown
         elif [[ $scelta == "r" ]]; then
             sudo reboot
         else

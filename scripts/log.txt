@@ -12,3 +12,14 @@
 17:38:48 [INFO]  Visualizza log di sicurezza
 17:38:53 [INFO]  Visualizza log di rete
 17:38:58 [INFO]  Visualizza log di utenti
+09:13:09 [INFO]  Avvio del programma
+11:43:07 [INFO]  Avvio del programma
+11:43:35 [INFO]  Aggiungi disco 
+11:44:45 [INFO]  Avvio del programma
+11:46:01 [INFO]  Avvio del programma
+11:46:38 [INFO]  Avvio del programma
+11:47:08 [INFO]  Avvio del programma
+11:49:03 [INFO]  Avvio del programma
+11:53:45 [INFO]  Avvio del programma
+11:56:11 [INFO]  Avvio del programma
+11:56:53 [INFO]  Avvio del programma

@@ -12,4 +12,3 @@ source "${file_dir}/gestione_servizi.bash"      # Menu Gestione Servizi
 source "${file_dir}/gestione_rete.bash"         # Menu Gestione Rete
 source "${file_dir}/gestione_utenti.bash"       # Menu Gestione Utenti
 source "${file_dir}/operazioni_di_sistema.bash" # Menu Operazioni di Sistema
-

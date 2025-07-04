@@ -1,11 +1,9 @@
-#!/usr/bin/env bash
-# File di ingresso del programma
+#!/bin/bash
 
 file_dir="$(dirname "${BASH_SOURCE[0]}")"
 
 # Librerie ausiliarie
 source "${file_dir}/codice_base.bash"
-source "${file_dir}/stampa.bash"
 source "${file_dir}/stilizzazione.bash"
 source "${file_dir}/registrazioni.bash"
 
@@ -14,37 +12,36 @@ source "${file_dir}/schermate/schermate.bash"
 
 # Funzione di ingresso
 function main() {
-    # Processione degli argomenti
-    while [[ $# -gt 0 ]]; do # while len(args) > 0:
-        case $1 in           #     match args[0]
-        -h | --help)
+    while [[ $# -gt 0 ]]; do        # args = args[0] args[1] ... args[n]
+        case $1 in          
+        -h | --help)                # Show help
             schermata_manuale
             exit 0
             ;;
-        -v | --version)
+        -v | --version)             # Show version
             println "${versione}"
             exit 0
             ;;
-        -r | --registro)
+        -r | --registro)            # Set log file
             shift
             registro="$1"
             ha_genitore_accessibile "${registro}" | exit 1
             export registro
             ;;
-        -d | --debug)
+        -d | --debug)               # Enable debug mode
             export DEBUG=1
             ;;
         --no-color)
             export NO_COLOR=1
             ;;
-        *)
+        *)                          # Unrecognized argument
             ARGS+=("$1")
             println "$(come_errore "Errore:") argomento non riconosciuto: $1" >&2
             println "Usa $(come_avviso "--help") per vedere l'elenco degli argomenti disponibili." >&2
             exit 1
             ;;
         esac
-        shift # args = args[1:]
+        shift                      
     done
     registra_info "Avvio del programma"
     clear
@@ -78,5 +75,5 @@ function _avviso_se_caricato_come_libreria() {
         "$(come_avviso "Lanciare la funzione $(con_grassetto "main()") dopo averlo importato terminerà con un exit che chiuderà la sessione corrente!")"
 }
 
-se_chiamato_come_script_lanciare main "$@"
-se_chiamato_come_libreria_lanciare _avviso_se_caricato_come_libreria
+se_chiamato_come_script_lanciare main "$@"                              # Lancia la funzione main se chiamato come script
+se_chiamato_come_libreria_lanciare _avviso_se_caricato_come_libreria    # Lancia la funzione di avviso se chiamato come libreria
