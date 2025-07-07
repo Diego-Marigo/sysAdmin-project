@@ -2,7 +2,7 @@
 
 # **Laboratorio ed Amministrazione di sistema**
 
-**Autori**: Diego Marigo, Nicola Miotto
+**Autori**: [Diego Marigo](https://github.com/Diego-Marigo), [Nicola Miotto](https://github.com/MiottoNicola)
 
 **Versione:** 1.0
 
