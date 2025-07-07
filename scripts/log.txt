@@ -60,3 +60,4 @@
 20:37:25 [INFO]  Avvio del programma
 20:37:39 [INFO]  Avvio del programma
 20:37:48 [INFO]  Avvio del programma
+22:05:27 [INFO]  Avvio del programma

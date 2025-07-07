@@ -51,7 +51,9 @@ sysAdmin-project/
 
 ### **Modulo `eseguibile.bash`**
 
-Entry point del programma.
+Questo è lo script principale del programma. Funziona come entry point e 
+gestisce l'esecuzione del programma. Contiene la logica per analizzare gli 
+argomenti passati al programma e avviare le schermate appropriate.
 
 ### **Modulo `main.bash`**
 
