@@ -25,25 +25,26 @@ la comprensione._
 ```
 sysAdmin-project/
 ├── eseguibile.bash                 # Entry point del programma
-├── LICENSE
-├── README.md
-├── README.pdf
-├── schermate/                      # Cartella delle schermate
-│   ├── gestione_disco.bash
-│   ├── gestione_pacchetti.bash
-│   ├── gestione_rete.bash
-│   ├── gestione_servizi.bash
-│   ├── gestione_utenti.bash
-│   ├── manuale.bash                # Output di --help
-│   ├── monitoraggio.bash
-│   ├── operazioni_di_sistema.bash
-│   ├── principale.bash
-│   └── schermate.bash
-└── scripts/
+├── installDependency.bash          # Script per l'installazione delle dipendenze
+├── LICENSE                         # Licenza del progetto
+├── README.md                       # Documentazione del progetto
+├── schermate/                     
+│   ├── gestione_disco.bash         # Schermata per la gestione delle partizioni del disco
+│   ├── gestione_pacchetti.bash     # Schermata per la gestione dei pacchetti
+│   ├── gestione_rete.bash          # Schermata per la gestione della rete
+│   ├── gestione_servizi.bash       # Schermata per la gestione dei servizi
+│   ├── gestione_utenti.bash        # Schermata per la gestione degli utenti
+│   ├── manuale.bash                # Schermata per il manuale utente
+│   ├── monitoraggio.bash           # Schermata per il monitoraggio del sistema
+│   ├── operazioni_di_sistema.bash  # Schermata per le operazioni di sistema
+│   ├── principale.bash             # Schermata principale
+│   └── schermate.bash              # Schermata per la gestione delle schermate
+└── scripts/   
     ├── main.bash                   # Centro logico del programma
     ├── codice_base.bash            # Strumenti di supporto
     ├── registrazioni.bash          # Funzioni di log
-    └── stilizzazione.bash          # Funzioni per lo stile
+    ├── stilizzazione.bash          # Funzioni per lo stile
+    └── log.txt                     # File di log predefinito
 ```
 
 ## **Descrizione dei moduli**
