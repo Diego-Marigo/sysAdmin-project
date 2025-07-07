@@ -91,7 +91,6 @@ function monitoraggio() {
             monitoraggio
             ;;
         esac
-        read -rp "Premi un tasto per tornare indietro..."
-        monitoraggio
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }

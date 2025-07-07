@@ -38,7 +38,7 @@ function schermata_principale() {
             apri_registro
             println ""
             println "$(con_grassetto "====================================")"
-            read -n 1 -s -r -p "Premi invio per continuare..."
+            read -rp "Premi INVIO per tornare indietro..."
             println ""
             schermata_principale
             ;;
@@ -56,6 +56,7 @@ function schermata_principale() {
             print "$(come_avviso ".")"
             sleep .3
             println "$(come_avviso ".")"
+            sleep .1
             exit 0
             ;;
         *)

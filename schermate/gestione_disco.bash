@@ -16,7 +16,7 @@ function gestione_disco() {
             "q) Back" \
             "$(con_grassetto "====================================")"
 
-        read -rp "Seleziona un'opzione [1-13,q]: " disk_choice
+        read -rp "Seleziona un'opzione [1-7,q]: " disk_choice
         case $disk_choice in
         1 | aggiungi_disco)
             clear
@@ -144,8 +144,7 @@ function gestione_disco() {
             gestione_disco
             ;;
         esac
-        read -rp "Premi un tasto per tornare indietro..."
-        gestione_disco
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }
 

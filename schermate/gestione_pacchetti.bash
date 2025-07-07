@@ -13,7 +13,7 @@ function gestione_pacchetti(){
             "q) Back" \
             "$(con_grassetto "====================================")"
 
-        read -rp "Seleziona un'opzione [1-,q]: " package_choice
+        read -rp "Seleziona un'opzione [1-4,q]: " package_choice
         case $package_choice in
         1 | installa_pacchetto)
             clear
@@ -83,7 +83,6 @@ function gestione_pacchetti(){
             gestione_pacchetti
             ;;
         esac
-        read -rp "Premi un tasto per tornare indietro..."
-        gestione_pacchetti
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }

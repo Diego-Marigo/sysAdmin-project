@@ -96,7 +96,6 @@ function gestione_servizi(){
             gestione_servizi
             ;;
         esac
-        read -rp "Premi un tasto per tornare indietro..."
-        gestione_servizi
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }

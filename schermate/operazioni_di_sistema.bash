@@ -97,7 +97,7 @@ function operazioni_log() {
             ;;
         esac
         registra_info "Visualizza log opzione $choice"
-        read -rp "Premi un tasto per tornare..."
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }
 
@@ -200,7 +200,7 @@ function operazioni_sessione() {
             ;;
         esac
         registra_info "Sessione opzione $choice"
-        read -rp "Premi un tasto per tornare..."
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }
 

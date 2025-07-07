@@ -43,3 +43,20 @@
 15:15:40 [INFO]  Avvio del programma
 15:17:32 [INFO]  Avvio del programma
 15:17:35 [INFO]  Avvio del programma
+20:29:26 [INFO]  Avvio del programma
+20:29:32 [INFO]  Avvio del programma
+20:29:36 [INFO]  Monitoraggio CPU
+20:29:40 [INFO]  Monitoraggio CPU
+20:30:40 [INFO]  Avvio del programma
+20:30:46 [INFO]  Avvio del programma
+20:31:06 [INFO]  Avvio del programma
+20:31:12 [INFO]  Elenco pacchetti installati
+20:32:02 [INFO]  Elenco servizi attivi
+20:34:13 [INFO]  Avvio del programma
+20:34:35 [INFO]  Avvio del programma
+20:36:34 [INFO]  Avvio del programma
+20:36:48 [INFO]  Avvio del programma
+20:37:05 [INFO]  Avvio del programma
+20:37:25 [INFO]  Avvio del programma
+20:37:39 [INFO]  Avvio del programma
+20:37:48 [INFO]  Avvio del programma

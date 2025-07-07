@@ -72,8 +72,7 @@ function main() {
         exit 1
     fi
 
-    println "Premi invio per continuare..."
-    read -r -n 1
+    read -rp "Premi INVIO per continuare..."
     schermata_principale
 }
 

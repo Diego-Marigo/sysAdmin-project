@@ -136,7 +136,6 @@ function gestione_rete(){
             gestione_rete
             ;;
         esac
-        read -rp "Premi un tasto per tornare indietro..."
-        gestione_rete
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }

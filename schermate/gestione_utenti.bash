@@ -196,7 +196,6 @@ function gestione_utenti(){
             gestione_utenti
             ;;
         esac
-        read -rp "Premi un tasto per tornare indietro..."
-        gestione_utenti
+        read -rp "Premi INVIO per tornare indietro..."
     done
 }
