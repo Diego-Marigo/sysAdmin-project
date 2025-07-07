@@ -10,4 +10,5 @@ echo "Inizio dell'installazione delle dipendenze..."
 sleep 3
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt install -y apt bash cut chage chmod chpasswd df fdisk free fsck ifconfig iftop ip mkfs.ext4 netstat ping reboot rsync systemctl shutdown tail top ufw useradd userdel usermod who loginctl
+sudo apt install -y apt bash fdisk iftop iputils-ping rsync systemctl ufw coreutils
+

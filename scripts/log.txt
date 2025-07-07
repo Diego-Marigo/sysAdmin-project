@@ -61,3 +61,12 @@
 20:37:39 [INFO]  Avvio del programma
 20:37:48 [INFO]  Avvio del programma
 22:05:27 [INFO]  Avvio del programma
+20:47:17 [INFO]  Avvio del programma
+20:47:21 [INFO]  Avvio del programma
+20:47:29 [INFO]  Avvio del programma
+20:47:40 [INFO]  Sessione opzione 6
+20:47:54 [INFO]  Monitoraggio CPU
+20:49:05 [INFO]  Avvio del programma
+20:49:09 [INFO]  Monitoraggio RAM
+20:49:10 [INFO]  Monitoraggio Disco
+20:49:12 [INFO]  Monitoraggio Rete
