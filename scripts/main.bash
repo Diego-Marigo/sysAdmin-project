@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source_or_stop() {
     local path="$1"
@@ -16,7 +16,7 @@ source_or_stop "${file_dir}/stilizzazione.bash"
 source_or_stop "${file_dir}/registrazioni.bash"
 
 # Librerie delle schermate
-source_or_stop "${file_dir}/schermate/schermate.bash"
+source_or_stop "${file_dir}/../schermate/schermate.bash"
 function main() {
     # Processione degli argomenti
     while [[ $# -gt 0 ]]; do # while len(args) > 0:
@@ -72,7 +72,7 @@ function main() {
         exit 1
     fi
 
-    println "Premi un tasto per continuare..."
+    println "Premi invio per continuare..."
     read -r -n 1
     schermata_principale
 }

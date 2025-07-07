@@ -19,8 +19,8 @@ function operazioni_log() {
 
         read -rp "Scegli [1-7,q]: " choice
         case "$choice" in
-        1 | visualizza_log_di_sistema) 
-            clear 
+        1 | visualizza_log_di_sistema)
+            clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
                 "$(con_grassetto "        VISUALIZZA LOG DI SISTEMA")" \
@@ -29,7 +29,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        2 | visualizza_log_di_accesso) 
+        2 | visualizza_log_di_accesso)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -39,7 +39,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        3 | visualizza_log_del_kernel) 
+        3 | visualizza_log_del_kernel)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -49,7 +49,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        4 | visualizza_log_di_sicurezza) 
+        4 | visualizza_log_di_sicurezza)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -59,7 +59,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        5 | visualizza_log_di_rete) 
+        5 | visualizza_log_di_rete)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -69,7 +69,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        6 | visualizza_log_dei_pacchetti) 
+        6 | visualizza_log_dei_pacchetti)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -79,7 +79,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        7 | visualizza_log_dei_servizi) 
+        7 | visualizza_log_dei_servizi)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -108,19 +108,19 @@ function operazioni_sessione() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "      OPERAZIONI DI SESSIONE")" \
             "$(con_grassetto "====================================")" \
-            "1) Spegni" \
-            "2) Riavvia" \
-            "3) Sospendi" \
-            "4) Iberna" \
-            "5) Sospendi e iberna" \
-            "6) Blocca sessione" \
-            "7) Disconnetti utente corrente" \
+            "1) Spegni (shutdown now)" \
+            "2) Riavvia (reboot)" \
+            "3) Sospendi (systemctl suspend)" \
+            "4) Iberna (systemctl hibernate)" \
+            "5) Sospendi e iberna (systemctl hybrid-sleep)" \
+            "6) Blocca sessione (loginctl lock-session)" \
+            "7) Disconnetti utente corrente (loginctl terminate-user \$USER)" \
             "q) Back" \
             "$(con_grassetto "====================================")"
 
         read -rp "Scegli [1-7,q]: " choice
         case "$choice" in
-        1 | spegni_sistema ) 
+        1 | spegni_sistema)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -131,7 +131,7 @@ function operazioni_sessione() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        2 | riavvia_sistema ) 
+        2 | riavvia_sistema)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -142,7 +142,7 @@ function operazioni_sessione() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        3 | sospendi_sistema ) 
+        3 | sospendi_sistema)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -152,37 +152,37 @@ function operazioni_sessione() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        4 | iberna_sistema ) 
-            clear 
+        4 | iberna_sistema)
+            clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
                 "$(con_grassetto "        IBERNA IL SISTEMA")" \
                 "$(con_grassetto "====================================")"
-            sudo systemctl hibernate 
+            sudo systemctl hibernate
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        5 | sospendi_iberno_sistema ) 
-            clear 
+        5 | sospendi_iberno_sistema)
+            clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
                 "$(con_grassetto "        SOSPENDI E IBERNA IL SISTEMA")" \
                 "$(con_grassetto "====================================")"
-            sudo systemctl hybrid-sleep 
+            sudo systemctl hybrid-sleep
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        6 | blocca_sessione ) 
-            clear 
+        6 | blocca_sessione)
+            clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
                 "$(con_grassetto "        BLOCCA LA SESSIONE")" \
                 "$(con_grassetto "====================================")"
-            loginctl lock-session 
+            loginctl lock-session
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        7 | disconnetti_utente ) 
+        7 | disconnetti_utente)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -203,3 +203,4 @@ function operazioni_sessione() {
         read -rp "Premi un tasto per tornare..."
     done
 }
+

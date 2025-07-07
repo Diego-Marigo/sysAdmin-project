@@ -1,4 +1,4 @@
- function gestione_disco(){ 
+function gestione_disco() {
     while true; do
 
         clear
@@ -11,14 +11,8 @@
             "3) Visualizza dischi" \
             "4) Formatta disco" \
             "5) Controlla file system" \
-            "6) Crea cartella" \
-            "7) Rimuovi cartella" \
-            "8) Visualizza contenuto cartella" \
-            "9) Crea file" \
-            "10) Rimuovi file" \
-            "11) Visualizza contenuto file" \
-            "12) Backup cartella" \
-            "13) Ripristina cartella" \
+            "6) Backup cartella" \
+            "7) Ripristina cartella" \
             "q) Back" \
             "$(con_grassetto "====================================")"
 
@@ -36,7 +30,7 @@
             sudo fdisk -l "$disco"
 
             sleep 1
-            printlines "$(con_grassetto "====================================")" \
+            printlines "$(con_grassetto "====================================")"
             ;;
         2 | rimuovi_disco)
             clear
@@ -50,25 +44,25 @@
             println "$(come_avviso "Assicurati di non avere partizioni montate sul disco.")"
             println "$(come_avviso "Assicurati di non avere file aperti sul disco.")"
             read -rp "Inserisci il nome del disco da rimuovere (es. /dev/sdX): " disco
-            
+
             registra_info "Rimuovi disco $disco"
             sudo fdisk -l "$disco"
 
             sleep 1
-            printlines "$(con_grassetto "====================================")" \
+            printlines "$(con_grassetto "====================================")"
             ;;
         3 | visualizza_dischi)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
                 "$(con_grassetto "        VISUALIZZA PARTIZIONI")" \
-                "$(con_grassetto "====================================")" 
+                "$(con_grassetto "====================================")"
 
             registra_info "Visualizza dischi"
             sudo fdisk -l
 
             sleep 1
-            printlines "$(con_grassetto "====================================")" \
+            printlines "$(con_grassetto "====================================")"
             ;;
         4 | formatta_disco)
             clear
@@ -97,7 +91,7 @@
             fi
 
             sleep 1
-            printlines "$(con_grassetto "====================================")" \
+            printlines "$(con_grassetto "====================================")"
             ;;
         5 | controlla_file_system)
             clear
@@ -106,98 +100,14 @@
                 "$(con_grassetto "        CONTROLLA FILE SYSTEM")" \
                 "$(con_grassetto "====================================")"
             read -rp "Inserisci il nome del file system da controllare (es. /dev/sdX1): " filesystem
-            
+
             registra_info "Controlla file system $filesystem"
             sudo fsck -f "$filesystem"
 
             sleep 1
-            printlines "$(con_grassetto "====================================")" \
+            printlines "$(con_grassetto "====================================")"
             ;;
-        6 | crea_cartella)
-            clear
-            printlines "" \
-                "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        CREA CARTELLA")" \
-                "$(con_grassetto "====================================")"
-            read -rp "Inserisci la directory con il nome della cartella da creare: " cartella
-
-            registra_info "Crea cartella $cartella"
-            sudo mkdir "$cartella"
-
-            sleep 1
-            printlines "$(con_grassetto "====================================")" \
-            ;;
-        7 | rimuovi_cartella)
-            clear
-            printlines "" \
-                "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        RIMUOVI CARTELLA")" \
-                "$(con_grassetto "====================================")"
-            read -rp "Inserisci la directory con il nome della cartella da rimuovere: " cartella
-
-            registra_info "Rimuovi cartella $cartella"
-            sudo rm -r "$cartella"
-
-            sleep 1
-            printlines "$(con_grassetto "====================================")" \
-            ;;
-        8 | visualizza_cartelle)
-            clear
-            printlines "" \
-                "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        VISUALIZZA CARTELLE")" \
-                "$(con_grassetto "====================================")"
-            read -rp "Inserisci la directory da visualizzare: " cartella
-
-            registra_info "Visualizza cartelle $cartella"
-            sudo ls "$cartella"
-
-            sleep 1
-            printlines "$(con_grassetto "====================================")" \
-            ;;
-        9 | crea_file)
-            clear
-            printlines "" \
-                "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        CREA FILE")" \
-                "$(con_grassetto "====================================")"
-            read -rp "Inserisci la directory con il nome del file da creare: " file
-
-            registra_info "Crea file $file"
-            sudo touch "$file"
-
-            sleep 1
-            printlines "$(con_grassetto "====================================")" \
-            ;;
-        10 | rimuovi_file)
-            clear
-            printlines "" \
-                "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        RIMUOVI FILE")" \
-                "$(con_grassetto "====================================")"
-            read -rp "Inserisci la directory con il nome del file da rimuovere: " file
-
-            registra_info "Rimuovi file $file"
-            sudo rm "$file"
-
-            sleep 1
-            printlines "$(con_grassetto "====================================")" \
-            ;;
-        11 | visualizza_file)
-            clear
-            printlines "" \
-                "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        VISUALIZZA FILE")" \
-                "$(con_grassetto "====================================")"
-            read -rp "Inserisci la directory con il nome del file da visualizzare: " file
-
-            registra_info "Visualizza file $file"
-            sudo cat "$file"
-
-            sleep 1
-            printlines "$(con_grassetto "====================================")" \
-            ;;
-        12 | backup_file)
+        6 | backup_file)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -209,9 +119,9 @@
             sudo rsync -av --delete --progress "$cartella" "$cartella.bak"
 
             sleep 1
-            printlines "$(con_grassetto "====================================")" \
+            printlines "$(con_grassetto "====================================")"
             ;;
-        13 | ripristina_file)
+        7 | ripristina_file)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -223,7 +133,7 @@
             sudo rsync -av --delete --progress "$cartella.bak" "$cartella"
 
             sleep 1
-            printlines "$(con_grassetto "====================================")" \
+            printlines "$(con_grassetto "====================================")"
             ;;
         q | Q)
             schermata_principale
@@ -238,3 +148,4 @@
         gestione_disco
     done
 }
+

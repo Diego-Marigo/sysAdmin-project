@@ -38,7 +38,7 @@ function schermata_principale() {
             apri_registro
             println ""
             println "$(con_grassetto "====================================")"
-            read -n 1 -s -r -p "Premi un tasto per continuare..."
+            read -n 1 -s -r -p "Premi invio per continuare..."
             println ""
             schermata_principale
             ;;
