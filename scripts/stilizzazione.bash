@@ -24,11 +24,27 @@ function print_with_bytes() {
 _stilizza() {
     local apri_stile="$_ESCAPE${1}"
     local chiudi_stile="$_ESCAPE${2}"
-    shift 2
+    shift 2 # Dimentica i primi 2 argomenti
 
-    if [[ $# -gt 0 ]]; then                 # Se ho argomenti
+    # Ritorno stringa raw, se --no-color è definito
+    if [[ -n "${NO_COLOR-}" ]]; then
+        if [[ $# -gt 0 ]]; then
+            # con argomenti: stampo in una riga sola
+            printf "%s\n" "$*"
+        else
+            # da pipe: rilascio le linee in ingresso
+            while IFS= read -r line; do
+                printf "%s\n" "$line"
+            done
+        fi
+        return
+    fi
+
+    if [[ $# -gt 0 ]]; then
+        # Se ho argomenti: unisco tutto in una stringa
         printf "%b\n" "${apri_stile}$*${chiudi_stile}"
-    else                                    # Se leggo da pipe      
+    else
+        # Se leggo da pipe
         printf "%b" "${apri_stile}"
         while IFS= read -r line; do
             printf "%b\n" "${line}"
@@ -54,3 +70,34 @@ function printlines() {                         # Stampa ogni argomento su una n
         println "${line}"
     done
 }
+
+# Presentazione del modulo in caso di chiamata diretta
+file_dir="$(dirname "${BASH_SOURCE[0]}")"
+
+function _presentazione_script() {
+    printlines "" \
+        "=================================================" \
+        "  $(con_grassetto "Libreria per basilari stilizzazioni dei testi")" \
+        "=================================================" \
+        "" \
+        "- $(con_grassetto "testo in grassetto") <- con_grassetto \"testo in grassetto\"" \
+        "- $(con_sottolineatura "testo sottolineato") <- con_sottolineatura \"testo sottolineato\"" \
+        "- $(con_sbarramento "testo sbarrato") <- con_sbarramento \"testo sbarrato\"" \
+        "" \
+        "" \
+        "È possibile concatenare le 3 funzioni qui sopra:" \
+        "$(con_grassetto "stili accumulati" | con_sottolineatura | con_sbarramento) <- con_grassetto \"stili accumulati\" | con_sottolineatura | con_sbarramento" \
+        "" \
+        "A questi si può aggiungere una chiave cromatica tra info, successo, errore e avviso" \
+        "$(come_info "testo informativo") <- come_info \"testo informativo\"" \
+        "$(come_successo "testo di conferma") <- come_successo \"testo di conferma\"" \
+        "$(come_errore "testo d'errore") <- come_errore \"testo d'errore\"" \
+        "$(come_avviso "testo d'allerta") <- come_avviso \"testo d'allerta\"" \
+        "" \
+        "" \
+        "" \
+        "" \
+        "Usare $(con_sottolineatura "source /questo/file") per provare le funzionalità"
+}
+
+se_chiamato_come_script_lanciare _presentazione_script

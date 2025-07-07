@@ -104,7 +104,7 @@ Le schermate principali includono:
     1) *Avvia servizio*: consente di avviare un servizio specifico (`systemctl start "$servizio"`).
     2) *Arresta servizio*: consente di arrestare un servizio specifico (`systemctl stop "$servizio"`).
     3) *Riavvia servizio*: consente di riavviare un servizio specifico (`systemctl restart "$servizio"`).
-    4) *Visualizza elenco servizi*: consente di visualizzare l'elenco dei servizi attivi (`systemctl list-units --type=service`).
+    4) *Visualizza elenco servizi*: consente di visualizzare l'elenco dei servizi attivi (`systemctl list-units --type=service --state=running --no-pager`).
     5) *Abilita/Disabilita servizio all'avvio*: consente di abilitare o disabilitare un servizio all'avvio del sistema (`systemctl $stato" "$servizio"`).
 - `gestione_utenti.bash`: Schermata per la gestione degli utenti, che consente di aggiungere, rimuovere e modificare gli utenti del sistema.
     1) *Aggiungi utente*: consente di aggiungere un nuovo utente al sistema e impostare la sua password (`useradd "$nome_utente" && passwd "$nome_utente"`).
@@ -120,11 +120,11 @@ Le schermate principali includono:
     9) *Elimina utente*: consente di rimuovere un utente dal sistema (`userdel "$nome_utente"`).
     10) *Visualizza elenco utenti*: consente di visualizzare l'elenco degli utenti del sistema (`cut -d: -f1 /etc/passwd`).
 - `monitoraggio.bash`: Schermata per il monitoraggio delle risorse di sistema, che consente di visualizzare l'utilizzo della CPU, della memoria e del disco.
-    1) *Visualizza utilizzo CPU*: consente di visualizzare l'utilizzo della CPU in tempo reale (`top -ncols 10 | head -n 20`).
+    1) *Visualizza utilizzo CPU*: consente di visualizzare l'utilizzo della CPU in tempo reale (`top --batch-mode --iterations=1 | head -n 20`).
     2) *Visualizza utilizzo memoria*: consente di visualizzare l'utilizzo della memoria in tempo reale (`free -h`).
     3) *Visualizza utilizzo disco*: consente di visualizzare l'utilizzo del disco in tempo reale (`df -h`).
     4) *Visualizza stato rete*: consente di visualizzare lo stato delle interfacce di rete (`netstat`).
-    5) *Visualizza servizi attivi*: consente di visualizzare i servizi attivi e il loro stato (`systemctl list-units --type=service --state=running`).
+    5) *Visualizza servizi attivi*: consente di visualizzare i servizi attivi e il loro stato (`systemctl list-units --type=service --state=running --no-pager`).
     6) *Visualizza utenti connessi*: consente di visualizzare gli utenti connessi al sistema (`who`).
 - `operazioni_di_sistema.bash`: Schermata per le operazioni di sistema, che consente di eseguire operazioni come il riavvio, lo spegnimento e la gestione dei file di log.
     1) *Visualizza log sistema*: consente di visualizzare i log di sistema (`tail -f /var/log/syslog`).

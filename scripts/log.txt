@@ -23,3 +23,5 @@
 11:53:45 [INFO]  Avvio del programma
 11:56:11 [INFO]  Avvio del programma
 11:56:53 [INFO]  Avvio del programma
+13:40:37 [INFO]  Avvio del programma
+13:40:41 [INFO]  Monitoraggio CPU

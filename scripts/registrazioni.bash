@@ -17,4 +17,4 @@ function registra_errore() { printf "%s [ERROR] %s\n" "$(_timestamp)" "$*" >>"${
 function registra_debug() { printf "%s [DEBUG] %s\n" "$(_timestamp)" "$*" >>"${registro}"; }
 
 # Funzione di lettura
-function apri_registro() { cat "${registro}" ;}
+function apri_registro() { cat "${registro}" ; }
