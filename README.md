@@ -14,6 +14,12 @@ attività comuni di amministrazione, come la gestione dei file di log,
 l'esecuzione di script automatizzati e il monitoraggio del sistema. L'obiettivo
 è migliorare l'efficienza e ridurre gli errori nelle operazioni quotidiane._
 
+_Il codice del progetto è scritto in Bash e utilizza le funzionalità di scripting
+per gestire le operazioni di amministrazione del sistema. Le funzioni sono
+modulari e possono essere facilmente estese o modificate per aggiungere nuove
+funzionalità. Il codice è organizzato in moduli per facilitare la manutenzione e
+la comprensione._
+
 ## **Struttura del Progetto**
 
 ```
@@ -141,20 +147,9 @@ Le schermate principali includono:
      (`mkfs.ext4 $nomeDisco`).
   5. _Controlla filesystem_: consente di controllare lo stato di un filesystem
      (`fsck -f $nomeDisco`).
-  6. _Crea cartella_: consente di creare una nuova cartella in una partizione
-     specifica (`mkdir $nomeCartella`).
-  7. _Rimuovi cartella_: consente di rimuovere una cartella specifica
-     (`rm -r $nomeCartella`).
-  8. _Visualizza contenuto cartella_: consente di visualizzare il contenuto di
-     una cartella (`ls $nomeCartella`).
-  9. _Crea file_: consente di creare un nuovo file in una cartella specifica
-     (`touch $nomeFile`).
-  10. _Rimuovi file_: consente di rimuovere un file specifico (`rm $nomeFile`).
-  11. _Visualizza file_: consente di visualizzare il contenuto di un file
-      specifico (`cat $nomeFile`).
-  12. _Backup file_: consente di creare un backup di un file specifico
+  6. _Backup file_: consente di creare un backup di un file specifico
       (`rsync -av --delete --progress "$file" "$file.bak"`).
-  13. _Ripristina file_: consente di ripristinare un file da un backup specifico
+  7. _Ripristina file_: consente di ripristinare un file da un backup specifico
       (`rsync -av --delete --progress "$file.bak" "$file"`).
 - `gestione_pacchetti.bash`: Schermata per la gestione dei pacchetti, che
   consente di installare, rimuovere e aggiornare i pacchetti software del
@@ -319,8 +314,9 @@ sudo apt upgrade
 sudo apt install -y apt bash cut chage chmod chpasswd df fdisk free fsck ifconfig iftop ip mkfs.ext4 netstat ping reboot rsync systemctl shutdown tail top ufw useradd userdel usermod who loginctl
 ```
 
-Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux,
-ma è sempre meglio verificarne la presenza.
+> Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux, ma è sempre meglio verificarne la presenza.
+
+> All’interno della cartella del progetto è disponibile un installer che scarica le dipendenze in manniera automatica
 
 ### **Installazione ed esecuzione del programma**
 
@@ -357,14 +353,4 @@ operazioni specifiche. Gli argomenti disponibili sono:
 - `--debug` | `-d`: Abilita la modalità di debug, mostrando informazioni
   dettagliate sull'esecuzione del programma. Utile per identificare e risolvere
   eventuali problemi.
-- `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per
-  ambienti che non supportano la colorazione del testo o per una visualizzazione
-  più semplice.
-
-## **Codice progetto**
-
-Il codice del progetto è scritto in Bash e utilizza le funzionalità di scripting
-per gestire le operazioni di amministrazione del sistema. Le funzioni sono
-modulari e possono essere facilmente estese o modificate per aggiungere nuove
-funzionalità. Il codice è organizzato in moduli per facilitare la manutenzione e
-la comprensione.
+- `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per ambienti che non supportano la colorazione del testo o per una visualizzazione più semplice.
