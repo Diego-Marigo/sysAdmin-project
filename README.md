@@ -317,9 +317,9 @@ sudo apt upgrade
 sudo apt install -y apt bash cut chage chmod chpasswd df fdisk free fsck ifconfig iftop ip mkfs.ext4 netstat ping reboot rsync systemctl shutdown tail top ufw useradd userdel usermod who loginctl
 ```
 
-> Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux, ma è sempre meglio verificarne la presenza.
+> ⚠️ Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux, ma è sempre meglio verificarne la presenza.
 
-> All’interno della cartella del progetto è disponibile un installer che scarica le dipendenze in manniera automatica
+> ❗️ All’interno della cartella del progetto è disponibile un installer che scarica le dipendenze in manniera automatica
 
 ### **Installazione ed esecuzione del programma**
 
@@ -357,3 +357,9 @@ operazioni specifiche. Gli argomenti disponibili sono:
   dettagliate sull'esecuzione del programma. Utile per identificare e risolvere
   eventuali problemi.
 - `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per ambienti che non supportano la colorazione del testo o per una visualizzazione più semplice.
+
+### Contribuire
+Per segnalazioni bug o richieste di funzionalità:
+1. Crea issue su GitHub
+2. Descrivi il problema dettagliatamente
+3. Includi screenshot se necessario
