@@ -126,17 +126,23 @@ Le schermate principali includono:
     4) *Visualizza stato rete*: consente di visualizzare lo stato delle interfacce di rete (`netstat`).
     5) *Visualizza servizi attivi*: consente di visualizzare i servizi attivi e il loro stato (`systemctl list-units --type=service --state=running --no-pager`).
     6) *Visualizza utenti connessi*: consente di visualizzare gli utenti connessi al sistema (`who`).
-- `operazioni_di_sistema.bash`: Schermata per le operazioni di sistema, che consente di eseguire operazioni come il riavvio, lo spegnimento e la gestione dei file di log.
-    1) *Visualizza log sistema*: consente di visualizzare i log di sistema (`tail -f /var/log/syslog`).
-    2) *Visualizza log accesso*: consente di visualizzare i log degli accessi al sistema (`tail -f /var/log/auth.log`).
-    3) *Visualizza log errori*: consente di visualizzare i log degli errori del sistema (`tail -f /var/log/kern.log`).
-    4) *Visualizza log sicurezza*: consente di visualizzare i log di sicurezza del sistema (`tail -f /var/log/secure`).
-    5) *Visualizza log rete*: consente di visualizzare i log della rete (`tail -n 50 /var/log/messages`).
-    6) *Visualizza log pacchetti*: consente di visualizzare i log dei pacchetti (`tail -n 50 /var/log/apt/history.log`).
-    7) *Visualizza log applicazioni*: consente di visualizzare i log delle applicazioni (`tail -n 50 /var/log/daemon.log`).
-    8) *Spegni/riavvia sistema*: consente di spegnere o riavviare il sistema:
-        - Spegnimento: `shutdown`
-        - Riavvio: `shutdown`
+- `operazioni_di_sistema.bash`: Schermata per le operazioni di sistema, che consente di eseguire operazioni come il riavvio, lo spegnimento e la gestione dei file di log. Si suddivide in due sezioni:
+    - *operazioni di log*: consente di visualizzare i log di sistema e degli accessi, con la possibilità di filtrare per tipo di log.
+        1) *Visualizza log sistema*: consente di visualizzare i log di sistema (`tail -f /var/log/syslog`).
+        2) *Visualizza log accesso*: consente di visualizzare i log degli accessi al sistema (`tail -f /var/log/auth.log`).
+        3) *Visualizza log kernel*: consente di visualizzare i log degli errori del sistema (`tail -f /var/log/kern.log`).
+        4) *Visualizza log sicurezza*: consente di visualizzare i log di sicurezza del sistema (`tail -f /var/log/secure`).
+        5) *Visualizza log rete*: consente di visualizzare i log della rete (`tail -n 50 /var/log/messages`).
+        6) *Visualizza log pacchetti*: consente di visualizzare i log dei pacchetti (`tail -n 50 /var/log/apt/history.log`).
+        7) *Visualizza log applicazioni*: consente di visualizzare i log delle applicazioni (`tail -n 50 /var/log/daemon.log`).
+    - *operazioni di sistema*: consente di eseguire operazioni di spegnimento e riavvio del sistema.
+        1) *Spegni sistema*: consente di spegnere il sistema (`shutdown now`).
+        2) *Riavvia sistema*: consente di riavviare il sistema (`reboot`).
+        3) *Sospendi sistema*: consente di sospendere il sistema (`systemctl suspend`).
+        4) *Iberna sistema*: consente di ibernare il sistema (`systemctl hibernate`).
+        5) *Sospendi e iberna sistema*: consente di sospendere e ibernare il sistema (`systemctl hybrid-sleep`).
+        6) *Blocca sessione*: consente di bloccare il sistema (`loginctl lock-session`).
+        7) *Disconnetti utente corrente*: consente di disconnettere l'utente corrente (`loginctl --terminate-user`).
 
 ## **Esecuzione script**
 
@@ -155,6 +161,7 @@ Pacchetti utilizzati all'interno del programma:
 - `ifconfig`: Per visualizzare e configurare le interfacce di rete.
 - `iftop`: Per monitorare il traffico di rete in tempo reale.
 - `ip`: Per visualizzare e configurare le interfacce di rete.
+- `loginctl`: Per gestire le sessioni degli utenti e le operazioni di sistema.
 - `mkfs.ext4`: Per formattare le partizioni in ext4.
 - `netstat`: Per visualizzare le connessioni di rete.
 - `ping`: Per testare la connettività di rete.
@@ -175,7 +182,7 @@ Assicurarsi di avere installato i seguenti pacchetti sul sistema:
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install -y apt bash cut chage chmod chpasswd df fdisk free fsck ifconfig iftop ip mkfs.ext4 netstat ping reboot rsync systemctl shutdown tail top ufw useradd userdel usermod who
+sudo apt install -y apt bash cut chage chmod chpasswd df fdisk free fsck ifconfig iftop ip mkfs.ext4 netstat ping reboot rsync systemctl shutdown tail top ufw useradd userdel usermod who loginctl
 ```
 Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux, ma è sempre meglio verificarne la presenza.
 
@@ -227,8 +234,10 @@ Sono inclusi alcuni screenshot del programma in esecuzione per fornire una panor
 ![Menu gestione servizi](screenshot/output/gestione_servizi.png)
 ### **Screenshot schermate gestione utenti**
 ![Menu gestione utenti](screenshot/output/gestione_utenti.png)
-### **Screenshot schermata operazioni di sistema**
-![Menu operazioni di sistema](screenshot/output/operazioni_di_sistema.png)
+### **Screenshot schermata operazioni di sessione**
+![Menu operazioni di sessione](screenshot/output/operazioni_sessione.png)
+### **Screenshot schermata operazioni di log**
+![Menu operazioni di log](screenshot/output/operazioni_log.png)
 ### **Screenshot schermata monitoraggio**
 ![Menu monitoraggio](screenshot/output/monitoraggio.png)
 ### **Screenshot schermata visualizzazione log**
@@ -237,3 +246,5 @@ Sono inclusi alcuni screenshot del programma in esecuzione per fornire una panor
 ![Menu uscita](screenshot/output/exit.png)
 ### **Screenshot schermata manuale**
 ![Menu manuale](screenshot/output/manuale.png)
+### **Schermata di assenza di permessi**
+![Schermata di assenza di permessi](screenshot/output/permessi.png)

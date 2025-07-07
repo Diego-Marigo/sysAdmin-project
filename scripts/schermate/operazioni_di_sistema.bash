@@ -13,14 +13,13 @@ function operazioni_log() {
             "4) Log di sicurezza (/var/log/secure)" \
             "5) Log di rete (/var/log/messages)" \
             "6) Log dei pacchetti (/var/log/apt/history.log)" \
-            "7) Log dei servizi (/var/log/syslog)" \
-            "8) Log utenti (/var/log/auth.log)" \
+            "7) Log delle applicazioni (/var/log/daemon.log)" \
             "q) Back" \
             "$(con_grassetto "====================================")"
 
-        read -rp "Scegli [1-8,q]: " choice
+        read -rp "Scegli [1-7,q]: " choice
         case "$choice" in
-        1 visualizza_log_di_sistema) 
+        1 | visualizza_log_di_sistema) 
             clear 
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -30,7 +29,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        2 visualizza_log_di_accesso) 
+        2 | visualizza_log_di_accesso) 
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -40,7 +39,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        3 visualizza_log_del_kernel) 
+        3 | visualizza_log_del_kernel) 
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -50,7 +49,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        4 visualizza_log_di_sicurezza) 
+        4 | visualizza_log_di_sicurezza) 
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -60,7 +59,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        5 visualizza_log_di_rete) 
+        5 | visualizza_log_di_rete) 
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -70,7 +69,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        6 visualizza_log_dei_pacchetti) 
+        6 | visualizza_log_dei_pacchetti) 
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -80,23 +79,13 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        7 visualizza_log_dei_servizi) 
+        7 | visualizza_log_dei_servizi) 
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        VISUALIZZA LOG DEI SERVIZI")" \
+                "$(con_grassetto "        VISUALIZZA LOG DELLE APPLICAZIONI")" \
                 "$(con_grassetto "====================================")"
-            tail -n50 /var/log/syslog
-            sleep 1
-            printlines "$(con_grassetto "====================================")"
-            ;;
-        8 visualizza_log_utenti) 
-            clear
-            printlines "" \
-                "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        VISUALIZZA LOG UTENTI")" \
-                "$(con_grassetto "====================================")"
-            tail -n50 /var/log/auth.log
+            tail -n50 /var/log/daemon.log
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
@@ -119,13 +108,13 @@ function operazioni_sessione() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "      OPERAZIONI DI SESSIONE")" \
             "$(con_grassetto "====================================")" \
-            "1) Spegni (shutdown now)" \
-            "2) Riavvia (reboot)" \
-            "3) Sospendi (systemctl suspend)" \
-            "4) Iberna (systemctl hibernate)" \
-            "5) Sospendi all'iberno (systemctl hybrid-sleep)" \
-            "6) Blocca sessione (loginctl lock-session)" \
-            "7) Disconnetti utente corrente (loginctl --terminate-user)" \
+            "1) Spegni" \
+            "2) Riavvia" \
+            "3) Sospendi" \
+            "4) Iberna" \
+            "5) Sospendi e iberna" \
+            "6) Blocca sessione" \
+            "7) Disconnetti utente corrente" \
             "q) Back" \
             "$(con_grassetto "====================================")"
 
@@ -177,7 +166,7 @@ function operazioni_sessione() {
             clear 
             printlines "" \
                 "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        SOSPENDI ALL'IBERNO IL SISTEMA")" \
+                "$(con_grassetto "        SOSPENDI E IBERNA IL SISTEMA")" \
                 "$(con_grassetto "====================================")"
             sudo systemctl hybrid-sleep 
             sleep 1
