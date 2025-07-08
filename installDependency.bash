@@ -10,5 +10,13 @@ echo "Inizio dell'installazione delle dipendenze..."
 sleep 3
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt install -y apt bash fdisk iftop iputils-ping rsync systemctl ufw coreutils
-
+sudo apt install -y \
+    bash \
+    coreutils \
+    fdisk \
+    iftop \
+    iputils-ping \
+    net-tools \
+    rsync \
+    systemctl \
+    ufw

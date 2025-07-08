@@ -1,4 +1,4 @@
-function gestione_servizi(){
+function gestione_servizi() {
     while true; do
         clear
         printlines "" \
@@ -99,3 +99,4 @@ function gestione_servizi(){
         read -rp "Premi INVIO per tornare indietro..."
     done
 }
+

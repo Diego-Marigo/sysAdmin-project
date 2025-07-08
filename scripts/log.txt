@@ -125,3 +125,31 @@
 13:12:31 [INFO]  Rimuovi pacchetto bat e le sue dipendenze
 13:12:54 [INFO]  Avvio del programma
 13:13:21 [INFO]  Elenco servizi attivi
+13:21:07 [INFO]  Avvio del programma
+19:39:29 [INFO]  Monitoraggio CPU
+19:40:50 [INFO]  Avvio del programma
+19:40:53 [INFO]  Monitoraggio CPU
+19:41:02 [INFO]  Monitoraggio Rete
+19:44:46 [INFO]  Avvio del programma
+19:44:49 [INFO]  Avvio del programma
+19:44:52 [INFO]  Monitoraggio CPU
+19:44:53 [INFO]  Monitoraggio RAM
+19:44:55 [INFO]  Monitoraggio Disco
+19:44:56 [INFO]  Monitoraggio Rete
+19:44:58 [INFO]  Monitoraggio Servizi
+19:45:38 [INFO]  Monitoraggio CPU
+19:45:40 [INFO]  Monitoraggio Rete
+19:45:42 [INFO]  Monitoraggio Utenti
+19:46:35 [INFO]  Avvio del programma
+19:48:25 [INFO]  Visualizza log opzione 1
+19:50:40 [INFO]  Visualizza log opzione 1
+20:07:13 [INFO]  Avvio del programma
+20:07:19 [INFO]  Visualizza log opzione 1
+20:26:06 [INFO]  Avvio del programma
+20:26:11 [INFO]  Visualizza log opzione 1
+20:26:13 [INFO]  Visualizza log opzione 2
+20:45:58 [INFO]  Avvio del programma
+20:46:51 [INFO]  Avvio del programma
+20:47:05 [INFO]  Avvio del programma
+20:55:18 [INFO]  Avvia servizio 
+20:56:07 [INFO]  Elenco servizi attivi
