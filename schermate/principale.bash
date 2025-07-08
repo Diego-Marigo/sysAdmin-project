@@ -57,6 +57,8 @@ function schermata_principale() {
             sleep .3
             println "$(come_avviso ".")"
             sleep .1
+            println ""
+            println ""
             exit 0
             ;;
         *)

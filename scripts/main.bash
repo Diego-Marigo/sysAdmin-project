@@ -68,7 +68,10 @@ function main() {
     if [ "$(id -u)" -eq 0 ]; then
         println "Autenticazione come root riuscita."
     else
-        println "$(come_errore "Autenticazione come root non riuscita.")"
+        printlines \
+            "$(come_errore "Autenticazione come root non riuscita.")" \
+            "" \
+            ""
         exit 1
     fi
 

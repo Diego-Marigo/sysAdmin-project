@@ -70,3 +70,58 @@
 20:49:09 [INFO]  Monitoraggio RAM
 20:49:10 [INFO]  Monitoraggio Disco
 20:49:12 [INFO]  Monitoraggio Rete
+12:55:55 [INFO]  Avvio del programma
+12:56:00 [INFO]  Avvio del programma
+12:56:22 [INFO]  Avvio del programma
+12:56:46 [INFO]  Avvio del programma
+12:57:30 [INFO]  Avvio del programma
+12:58:04 [INFO]  Avvio del programma
+12:58:14 [INFO]  Avvio del programma
+12:59:58 [INFO]  Avvio del programma
+13:00:18 [INFO]  Avvio del programma
+13:00:53 [INFO]  Avvio del programma
+13:01:00 [INFO]  Avvio del programma
+13:01:15 [INFO]  Sessione opzione 7
+13:01:57 [INFO]  Visualizza log opzione 1
+13:02:06 [INFO]  Visualizza log opzione 2
+13:02:09 [INFO]  Visualizza log opzione 5
+13:02:11 [INFO]  Visualizza log opzione 7
+13:02:19 [INFO]  Monitoraggio CPU
+13:02:33 [INFO]  Monitoraggio RAM
+13:02:35 [INFO]  Monitoraggio Disco
+13:02:36 [INFO]  Monitoraggio Rete
+13:02:49 [INFO]  Monitoraggio Servizi
+13:03:02 [INFO]  Monitoraggio Servizi
+13:03:14 [INFO]  Monitoraggio Utenti
+13:03:37 [INFO]  Aggiungi utente test_user0
+13:03:43 [INFO]  Monitoraggio Utenti
+13:03:45 [INFO]  Monitoraggio Utenti
+13:03:54 [INFO]  Monitoraggio Servizi
+13:04:15 [INFO]  Aggiungi utente test_user1
+13:04:27 [INFO]  Modifica utente test_user1 in test_user2
+13:04:34 [INFO]  Visualizza utenti
+13:05:05 [INFO]  Modifica password utente test_user2
+13:05:49 [INFO]  Modifica gruppo utente test_user2 in test_group
+13:06:18 [INFO]  Avvio del programma
+13:07:02 [INFO]  Aggiunto utente test_user2 al gruppo 
+13:07:25 [INFO]  Modifica stato account utente test_user2 in attivo
+13:07:25 [INFO]  Modifica stato account utente test_user2 in attivo
+13:07:31 [INFO]  Elimina utente test_user2 (con home directory)
+13:07:42 [INFO]  Elimina utente test_user2
+13:07:59 [INFO]  Visualizza configurazione di rete
+13:08:06 [INFO]  Avvio del programma
+13:08:19 [INFO]  Visualizza stato della rete
+13:08:33 [INFO]  Modifica stato della rete
+13:08:54 [INFO]  Visualizza statistiche di rete
+13:09:20 [INFO]  Modifica statistiche di rete
+13:09:56 [INFO]  Gestione firewall
+13:10:32 [INFO]  Test di connessione a www.google.com
+13:10:54 [INFO]  Aggiorna pacchetti
+13:11:04 [INFO]  Elenco pacchetti installati
+13:11:21 [INFO]  Installa pacchetto nvim
+13:11:37 [INFO]  Installa pacchetto python
+13:12:02 [INFO]  Avvio del programma
+13:12:14 [INFO]  Installa pacchetto bat
+13:12:31 [INFO]  Rimuovi pacchetto bat e le sue dipendenze
+13:12:54 [INFO]  Avvio del programma
+13:13:21 [INFO]  Elenco servizi attivi
