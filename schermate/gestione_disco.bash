@@ -55,7 +55,7 @@ function gestione_disco() {
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
-                "$(con_grassetto "        VISUALIZZA PARTIZIONI")" \
+                "$(con_grassetto "        VISTA PARTIZIONI")" \
                 "$(con_grassetto "====================================")"
 
             registra_info "Visualizza dischi"

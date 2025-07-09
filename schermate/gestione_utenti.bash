@@ -195,6 +195,13 @@ function gestione_utenti() {
                 "$(con_grassetto "====================================")"
 
             while true; do
+                read -rp "Utente da bloccare/sbloccare: " nome_utente
+                if ! id "$nome_utente" &>/dev/null; then
+                    println "$(come_errore "Utente non trovato")"
+                    sleep 1
+                    continue
+                fi
+
                 read -rp "Inserisci il nuovo stato dell'account per l'utente $nome_utente (attivo/inattivo): " stato_account
                 if [[ $stato_account == "attivo" ]]; then
                     sudo usermod -U "$nome_utente"
@@ -206,7 +213,7 @@ function gestione_utenti() {
                     println "$(come_errore "Input non valido. Inserisci 'attivo' o 'inattivo'.")"
                 fi
             done
-            registra_info "Modifica stato account utente $nome_utente in $stato_account"
+
             registra_info "Modifica stato account utente $nome_utente in $stato_account"
 
             sleep 1
@@ -219,6 +226,13 @@ function gestione_utenti() {
                 "$(con_grassetto "        ELIMINA UTENTE")" \
                 "$(con_grassetto "====================================")"
             println "$(come_avviso "Attenzione: questa operazione richiede i privilegi di root.")"
+            read -rp "Utente da bloccare/sbloccare: " nome_utente
+            if ! id "$nome_utente" &>/dev/null; then
+                println "$(come_errore "Utente non trovato")"
+                sleep 1
+                continue
+            fi
+
             sudo userdel -r "$nome_utente"
             registra_info "Elimina utente $nome_utente (con home directory)"
             println "$(come_successo "Utente $nome_utente e la sua home directory sono stati eliminati con successo.")"
