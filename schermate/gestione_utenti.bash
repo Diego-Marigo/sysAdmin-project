@@ -140,9 +140,21 @@ function gestione_utenti() {
                 "$(con_grassetto "====================================")"
 
             read -rp "Inserisci il nome dell'utente di cui modificare la scadenza della password: " nome_utente
-            read -rp "Inserisci la nuova scadenza della password per l'utente $nome_utente (in giorni): " scadenza_password
-            sudo chage -M "$scadenza_password" "$nome_utente"
-            registra_info "Modifica scadenza password utente $nome_utente in $scadenza_password giorni"
+            if ! id "$nome_utente" &>/dev/null; then
+                println "$(come_errore "Utente non trovato")"
+                sleep 1
+                continue
+            fi
+
+            read -rp "Numero giorni di validità residui prima della scadenza: " n_giorni
+            if ! [[ "$n_giorni" =~ ^[0-9]+$ ]]; then
+                println "$(come_errore "Inserire un numero valido.")"
+                sleep 1
+                continue
+            fi
+
+            sudo chage -M "$n_giorni" "$nome_utente"
+            registra_info "Modifica scadenza password utente $nome_utente in $n_giorni giorni"
 
             sleep 1
             printlines "$(con_grassetto "====================================")"
@@ -155,10 +167,22 @@ function gestione_utenti() {
                 "$(con_grassetto "====================================")"
 
             read -rp "Inserisci il nome dell'utente di cui modificare la scadenza dell'account: " nome_utente
-            read -rp "Inserisci la nuova scadenza dell'account per l'utente $nome_utente (in giorni): " scadenza_account
-            data_scadenza=$(date -d "+$scadenza_account days" +"%Y-%m-%d")
+            if ! id "$nome_utente" &>/dev/null; then
+                println "$(come_errore "Utente non trovato")"
+                sleep 1
+                continue
+            fi
+
+            read -rp "Numero giorni di validità residui prima della scadenza: " n_giorni
+            if ! [[ "$n_giorni" =~ ^[0-9]+$ ]]; then
+                println "$(come_errore "Inserire un numero valido.")"
+                sleep 1
+                continue
+            fi
+
+            data_scadenza=$(date -d "+$n_giorni days" +"%Y-%m-%d")
             sudo chage -E "$data_scadenza" "$nome_utente"
-            registra_info "Modifica scadenza account utente $nome_utente in $scadenza_account giorni (fino al $data_scadenza)"
+            registra_info "Modifica scadenza account utente $nome_utente in $n_giorni giorni (fino al $data_scadenza)"
 
             sleep 1
             printlines "$(con_grassetto "====================================")"
