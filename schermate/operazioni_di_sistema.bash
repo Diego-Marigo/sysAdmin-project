@@ -1,12 +1,12 @@
 function operazioni_log() {
     # PREREQUISITO: essere in un sistema con systemd!
-    #if ! command -v journalctl &>/dev/null; then
-    #    printlines \
-    #        "$(come_errore "Questo script richiede systemd per funzionare.")" \
-    #        "$(come_avviso "Impossibile proseguire senza journalctl")"
-    #    sleep 1.5
-    #    return
-    #fi
+    if ! command -v journalctl &>/dev/null; then
+        printlines \
+            "$(come_errore "Questo script richiede systemd per funzionare.")" \
+            "$(come_avviso "Impossibile proseguire senza journalctl")"
+        sleep 1.5
+        return
+    fi
 
     while true; do
         clear
