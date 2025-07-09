@@ -2,7 +2,8 @@
 
 # **Laboratorio ed Amministrazione di sistema**
 
-**Autori**: [Diego Marigo](https://github.com/Diego-Marigo), [Nicola Miotto](https://github.com/MiottoNicola)
+**Autori**: [Diego Marigo](https://github.com/Diego-Marigo),
+[Nicola Miotto](https://github.com/MiottoNicola)
 
 **Versione:** 1.0
 
@@ -10,15 +11,22 @@
 
 _Il programma è progettato per assistere gli amministratori di sistema nella
 gestione di sistemi Linux. Fornisce strumenti e script utili per semplificare
-attività comuni di amministrazione, come la gestione dei file di log,
-l'esecuzione di script automatizzati e il monitoraggio del sistema. L'obiettivo
-è migliorare l'efficienza e ridurre gli errori nelle operazioni quotidiane._
+attività comuni di amministrazione, come la gestione dei file di log, la
+gestione dei servizi e il monitoraggio del sistema. L'obiettivo è migliorare
+l'efficienza e ridurre gli errori nelle operazioni quotidiane._
 
-_Il codice del progetto è scritto in Bash e utilizza le funzionalità di scripting
-per gestire le operazioni di amministrazione del sistema. Le funzioni sono
-modulari e possono essere facilmente estese o modificate per aggiungere nuove
-funzionalità. Il codice è organizzato in moduli per facilitare la manutenzione e
-la comprensione._
+_Il codice del progetto è scritto in Bash e utilizza le funzionalità di
+scripting per gestire le operazioni di amministrazione del sistema. Le funzioni
+sono modulari e possono essere facilmente estese o modificate per aggiungere
+nuove funzionalità. Il codice è organizzato in moduli per facilitare la
+manutenzione e la comprensione._
+
+> ⚠️**Requisiti di sistema**: Questo programma è stato sviluppato per ambienti
+> **Ubuntu/Debian** e si appoggia:
+>
+> - alla gestione dei pacchetti tramite **apt**;
+> - al controllo dei servizi tramite **systemd** (comando systemctl).
+> - al logging centralizzato di **systemd-journald** (comando journalctl);
 
 ## **Struttura del Progetto**
 
@@ -51,8 +59,8 @@ sysAdmin-project/
 
 ### **Modulo `eseguibile.bash`**
 
-Questo è lo script principale del programma. Funziona come entry point e 
-gestisce l'esecuzione del programma. Contiene la logica per analizzare gli 
+Questo è lo script principale del programma. Funziona come entry point e
+gestisce l'esecuzione del programma. Contiene la logica per analizzare gli
 argomenti passati al programma e avviare le schermate appropriate.
 
 ### **Modulo `main.bash`**
@@ -79,13 +87,16 @@ l'output più leggibile e visivamente accattivante. Le funzioni principali
 includono:
 
 - `_stilizza`: Funzione generale per applicare stili specifici all'output.
+
 - `con_grassetto`: Applica lo stile grassetto al testo.
 - `con_sottolineatura`: Applica lo stile di sottolineatura al testo.
 - `con_sbarramento`: Applica lo stile di sbarramento al testo.
+
 - `come_info`: Applica lo stile informativo al testo.
 - `come_successo`: Applica lo stile di successo al testo.
 - `come_errore`: Applica lo stile di errore al testo.
 - `come_avviso`: Applica lo stile di avviso al testo.
+
 - `print`: Funzione per stampare l'output stilizzato, accettando un numero
   variabile di argomenti e applicando gli stili appropriati.
 - `println`: Funzione per stampare l'output stilizzato con un ritorno a capo,
@@ -113,7 +124,7 @@ principali includono:
   visualizzare le registrazioni effettuate.
 
 > ❗️ _Il file di log predefinito è `ROOT/scripts/log.txt`, ma può essere
-> modificato passando un argomento al programma._
+> modificato passando l'argomento **-r**/**--registro** al programma._
 
 ### **Modulo `schermate/`**
 
@@ -133,11 +144,14 @@ Le schermate principali includono:
 - `schermate.bash`: Raccoglie tutte le schermate e i menu del programma,
   permettendo di visualizzare le opzioni disponibili e guidare l'utente
   attraverso le funzionalità del sistema.
+
 - `principale.bash`: Schermata principale del programma, che fornisce un menu di
   navigazione per accedere alle diverse funzionalità.
+
 - `manuale.bash`: Schermata per il manuale del programma, che fornisce
   informazioni dettagliate su come utilizzare le diverse funzionalità del
   sistema.
+
 - `gestione_disco.bash`: Schermata per la gestione delle partizioni del disco,
   che consente di creare, eliminare e modificare le partizioni.
   1. _Aggiungi disco_: consente di aggiungere un nuovo disco al sistema
@@ -151,9 +165,10 @@ Le schermate principali includono:
   5. _Controlla filesystem_: consente di controllare lo stato di un filesystem
      (`fsck -f $nomeDisco`).
   6. _Backup file_: consente di creare un backup di un file specifico
-      (`rsync -av --delete --progress "$file" "$file.bak"`).
+     (`rsync -av --delete --progress "$file" "$file.bak"`).
   7. _Ripristina file_: consente di ripristinare un file da un backup specifico
-      (`rsync -av --delete --progress "$file.bak" "$file"`).
+     (`rsync -av --delete --progress "$file.bak" "$file"`).
+
 - `gestione_pacchetti.bash`: Schermata per la gestione dei pacchetti, che
   consente di installare, rimuovere e aggiornare i pacchetti software del
   sistema.
@@ -166,6 +181,7 @@ Le schermate principali includono:
      (`apt update && apt upgrade -y`).
   4. _Elenco pacchetti installati_: consente di visualizzare l'elenco dei
      pacchetti installati (`apt list --installed`)
+
 - `gestione_rete.bash`: Schermata per la gestione della rete, che consente di
   configurare le interfacce di rete, visualizzare le connessioni attive e
   monitorare il traffico di rete.
@@ -185,6 +201,7 @@ Le schermate principali includono:
        `ufw "$stato" "$indirizzo"`
   7. _Test di rete_: consente di eseguire un test di rete
      (`ping -c 4 "$indirizzo"`).
+
 - `gestione_servizi.bash`: Schermata per la gestione dei servizi di sistema, che
   consente di avviare, fermare e monitorare i servizi in esecuzione.
   1. _Avvia servizio_: consente di avviare un servizio specifico
@@ -198,6 +215,7 @@ Le schermate principali includono:
   5. _Abilita/Disabilita servizio all'avvio_: consente di abilitare o
      disabilitare un servizio all'avvio del sistema
      (`systemctl $stato" "$servizio"`).
+
 - `gestione_utenti.bash`: Schermata per la gestione degli utenti, che consente
   di aggiungere, rimuovere e modificare gli utenti del sistema.
   1. _Aggiungi utente_: consente di aggiungere un nuovo utente al sistema e
@@ -223,6 +241,7 @@ Le schermate principali includono:
      (`userdel "$nome_utente"`).
   10. _Visualizza elenco utenti_: consente di visualizzare l'elenco degli utenti
       del sistema (`cut -d: -f1 /etc/passwd`).
+
 - `monitoraggio.bash`: Schermata per il monitoraggio delle risorse di sistema,
   che consente di visualizzare l'utilizzo della CPU, della memoria e del disco.
   1. _Visualizza utilizzo CPU_: consente di visualizzare l'utilizzo della CPU in
@@ -238,25 +257,27 @@ Le schermate principali includono:
      (`systemctl list-units --type=service --state=running --no-pager`).
   6. _Visualizza utenti connessi_: consente di visualizzare gli utenti connessi
      al sistema (`who`).
+
 - `operazioni_di_sistema.bash`: Schermata per le operazioni di sistema, che
   consente di eseguire operazioni come il riavvio, lo spegnimento e la gestione
   dei file di log. Si suddivide in due sezioni:
+
   - _operazioni di log_: consente di visualizzare i log di sistema e degli
     accessi, con la possibilità di filtrare per tipo di log.
     1. _Visualizza log sistema_: consente di visualizzare i log di sistema
-       (`tail -f /var/log/syslog`).
+       (`journalctl -n 50 --no-pager`).
     2. _Visualizza log accesso_: consente di visualizzare i log degli accessi al
-       sistema (`tail -f /var/log/auth.log`).
+       sistema
+       (`journalctl _COMM=sudo _SYSTEMD_UNIT=sshd.service -n 100 --no-pager`).
     3. _Visualizza log kernel_: consente di visualizzare i log degli errori del
-       sistema (`tail -f /var/log/kern.log`).
-    4. _Visualizza log sicurezza_: consente di visualizzare i log di sicurezza
-       del sistema (`tail -f /var/log/secure`).
-    5. _Visualizza log rete_: consente di visualizzare i log della rete
-       (`tail -n 50 /var/log/messages`).
-    6. _Visualizza log pacchetti_: consente di visualizzare i log dei pacchetti
-       (`tail -n 50 /var/log/apt/history.log`).
-    7. _Visualizza log applicazioni_: consente di visualizzare i log delle
-       applicazioni (`tail -n 50 /var/log/daemon.log`).
+       sistema (`journalctl -k -n 50 --no-pager`).
+    4. _Visualizza log rete_: consente di visualizzare i log della rete
+       (`journalctl -u NetworkManager -n 50 --no-pager`).
+    5. _Visualizza log pacchetti_: consente di visualizzare i log dei pacchetti
+       (`tail -n50 /var/log/apt/history.log`).
+    6. _Visualizza log applicazioni_: consente di visualizzare i log delle
+       applicazioni (`journalctl -p info -n 50 --no-pager`).
+
   - _operazioni di sistema_: consente di eseguire operazioni di spegnimento e
     riavvio del sistema.
     1. _Spegni sistema_: consente di spegnere il sistema (`shutdown now`).
@@ -313,13 +334,24 @@ Assicurarsi di avere installato i seguenti pacchetti sul sistema:
 
 ```bash
 sudo apt update
-sudo apt upgrade
-sudo apt install -y apt bash cut chage chmod chpasswd df fdisk free fsck ifconfig iftop ip mkfs.ext4 netstat ping reboot rsync systemctl shutdown tail top ufw useradd userdel usermod who loginctl
+sudo apt upgrade -y
+sudo apt install -y \
+    bash \
+    coreutils \
+    fdisk \
+    iftop \
+    iputils-ping \
+    net-tools \
+    rsync \
+    systemctl \
+    ufw
 ```
 
-> ⚠️ Questi pacchetti sono generalmente preinstallati su molte distribuzioni Linux, ma è sempre meglio verificarne la presenza.
+> ⚠️ Questi pacchetti sono generalmente preinstallati su molte distribuzioni
+> Linux, ma è sempre meglio verificarne la presenza.
 
-> ❗️ All’interno della cartella del progetto è disponibile un installer che scarica le dipendenze in manniera automatica
+> ❗️ All’interno della cartella del progetto è disponibile un installer che
+> scarica le dipendenze in maniera automatica
 
 ### **Installazione ed esecuzione del programma**
 
@@ -356,10 +388,7 @@ operazioni specifiche. Gli argomenti disponibili sono:
 - `--debug` | `-d`: Abilita la modalità di debug, mostrando informazioni
   dettagliate sull'esecuzione del programma. Utile per identificare e risolvere
   eventuali problemi.
-- `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per ambienti che non supportano la colorazione del testo o per una visualizzazione più semplice.
+- `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per
+  ambienti che non supportano la colorazione del testo o per una visualizzazione
+  più semplice.
 
-### Contribuire
-Per segnalazioni bug o richieste di funzionalità:
-1. Crea issue su GitHub
-2. Descrivi il problema dettagliatamente
-3. Includi screenshot se necessario
