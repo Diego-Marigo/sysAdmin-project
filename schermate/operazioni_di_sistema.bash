@@ -1,12 +1,12 @@
 function operazioni_log() {
     # PREREQUISITO: essere in un sistema con systemd!
-    if ! command -v journalctl &>/dev/null; then
-        printlines \
-            "$(come_errore "Questo script richiede systemd per funzionare.")" \
-            "$(come_avviso "Impossibile proseguire senza journalctl")"
-        sleep 1.5
-        return
-    fi
+    #if ! command -v journalctl &>/dev/null; then
+    #    printlines \
+    #        "$(come_errore "Questo script richiede systemd per funzionare.")" \
+    #        "$(come_avviso "Impossibile proseguire senza journalctl")"
+    #    sleep 1.5
+    #    return
+    #fi
 
     while true; do
         clear
@@ -25,7 +25,7 @@ function operazioni_log() {
             "q) Back" \
             "$(con_grassetto "====================================")"
 
-        read -rp "Scegli [1-6,q]: " choice
+        read -rp "Seleziona un'opzione [1-6,q]: " choice
         case "$choice" in
         1 | visualizza_log_di_sistema)
             clear
@@ -113,17 +113,17 @@ function operazioni_sessione() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "      OPERAZIONI DI SESSIONE")" \
             "$(con_grassetto "====================================")" \
-            "1) Spegni (shutdown now)" \
-            "2) Riavvia (reboot)" \
-            "3) Sospendi (systemctl suspend)" \
-            "4) Iberna (systemctl hibernate)" \
-            "5) Sospendi e iberna (systemctl hybrid-sleep)" \
-            "6) Blocca sessione (loginctl lock-session)" \
-            "7) Disconnetti utente corrente (loginctl terminate-user \$USER)" \
+            "1) Spegni" \
+            "2) Riavvia" \
+            "3) Sospendi" \
+            "4) Iberna" \
+            "5) Sospendi e iberna" \
+            "6) Blocca sessione" \
+            "7) Disconnetti utente corrente" \
             "q) Back" \
             "$(con_grassetto "====================================")"
 
-        read -rp "Scegli [1-7,q]: " choice
+        read -rp "Seleziona un'opzione [1-7,q]: " choice
         case "$choice" in
         1 | spegni_sistema)
             clear

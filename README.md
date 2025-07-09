@@ -312,6 +312,7 @@ Pacchetti utilizzati all'interno del programma:
 - `ifconfig`: Per visualizzare e configurare le interfacce di rete.
 - `iftop`: Per monitorare il traffico di rete in tempo reale.
 - `ip`: Per visualizzare e configurare le interfacce di rete.
+- `journalctl`: Per visualizzare i log di sistema.
 - `loginctl`: Per gestire le sessioni degli utenti e le operazioni di sistema.
 - `mkfs.ext4`: Per formattare le partizioni in ext4.
 - `netstat`: Per visualizzare le connessioni di rete.
@@ -351,7 +352,7 @@ sudo apt install -y \
 > Linux, ma è sempre meglio verificarne la presenza.
 
 > ❗️ All’interno della cartella del progetto è disponibile un installer che
-> scarica le dipendenze in maniera automatica
+> scarica le dipendenze in maniera automatica: `installDependecy.bash`
 
 ### **Installazione ed esecuzione del programma**
 
