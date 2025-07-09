@@ -1,0 +1,8 @@
+11:03:18 [INFO]  Avvio del programma
+11:03:24 [INFO]  Avvio del programma
+11:24:00 [INFO]  Avvio del programma
+11:30:44 [INFO]  Avvio del programma
+11:30:49 [INFO]  Avvio del programma
+11:32:32 [INFO]  Avvio del programma
+11:33:24 [INFO]  Avvio del programma
+11:48:46 [INFO]  Avvio del programma
