@@ -197,3 +197,5 @@
 09:36:49 [INFO]  Avvio del programma
 09:36:58 [INFO]  Visualizza statistiche di rete
 09:38:06 [INFO]  Visualizza stato della rete
+09:42:06 [INFO]  Avvio del programma
+09:42:12 [INFO]  Visualizza dischi

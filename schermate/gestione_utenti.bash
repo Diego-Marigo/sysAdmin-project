@@ -29,10 +29,11 @@ function gestione_utenti() {
 
             read -rp "Inserisci il nome del nuovo utente: " nome_utente
             if id "$nome_utente" &>/dev/null; then
-                echo "❌ Utente '$nome_utente' già esistente."
+                println "$(come_errore "Utente '$nome_utente' già esistente.")"
                 sleep 1
                 continue
             fi
+
             sudo useradd "$nome_utente" && sudo passwd "$nome_utente"
             registra_info "Aggiungi utente $nome_utente"
             println "$(come_successo "Utente $nome_utente aggiunto con successo.")"
@@ -49,14 +50,14 @@ function gestione_utenti() {
 
             read -rp "Inserisci il nome dell'utente da modificare: " nome_utente
             if ! id "$nome_utente" &>/dev/null; then
-                print "$(come_errore "Utente $nome_utente non trovato")"
+                println "$(come_errore "Utente $nome_utente non trovato")"
                 sleep 1
                 continue
             fi
 
             read -rp "Inserisci il nuovo nome per l'utente $nome_utente: " nuovo_nome_utente
             if id "$nuovo_nome_utente" &>/dev/null; then
-                print "$(come_errore "Utente $nuovo_nome_utente già esistente")"
+                println "$(come_errore "Utente $nuovo_nome_utente già esistente")"
                 sleep 1
                 continue
             fi
@@ -76,6 +77,12 @@ function gestione_utenti() {
                 "$(con_grassetto "====================================")"
 
             read -rp "Inserisci il nome dell'utente di cui modificare la password: " nome_utente
+            if ! id "$nome_utente" &>/dev/null; then
+                println "$(come_errore "Utente non trovato")"
+                sleep 1
+                continue
+            fi
+
             read -rp "Inserisci la nuova password per l'utente $nome_utente: " password_utente
             sudo chpasswd <<<"$nome_utente:$password_utente"
             registra_info "Modifica password utente $nome_utente"
@@ -91,7 +98,19 @@ function gestione_utenti() {
                 "$(con_grassetto "====================================")"
 
             read -rp "Inserisci il nome dell'utente di cui modificare il gruppo: " nome_utente
+            if ! id "$nome_utente" &>/dev/null; then
+                println "$(come_errore "Utente non trovato")"
+                sleep 1
+                continue
+            fi
+
             read -rp "Inserisci il nuovo gruppo per l'utente $nome_utente: " nuovo_gruppo
+            if ! getent group "$nuovo_gruppo" &>/dev/null; then
+                println "$(come_errore "Gruppo non trovato")"
+                sleep 1
+                continue
+            fi
+
             sudo usermod -g "$nuovo_gruppo" "$nome_utente"
             registra_info "Modifica gruppo utente $nome_utente in $nuovo_gruppo"
 
@@ -216,4 +235,3 @@ function gestione_utenti() {
         read -rp "Premi INVIO per tornare indietro..."
     done
 }
-
