@@ -147,4 +147,3 @@ function gestione_disco() {
         read -rp "Premi INVIO per tornare indietro..."
     done
 }
-

@@ -153,3 +153,47 @@
 20:47:05 [INFO]  Avvio del programma
 20:55:18 [INFO]  Avvia servizio 
 20:56:07 [INFO]  Elenco servizi attivi
+21:16:17 [INFO]  Avvio del programma
+21:17:01 [INFO]  Avvio del programma
+09:25:34 [INFO]  Avvio del programma
+09:25:41 [INFO]  Avvio del programma
+09:25:47 [INFO]  Monitoraggio Servizi
+09:25:55 [INFO]  Elenco servizi attivi
+09:26:11 [INFO]  Elenco servizi attivi
+09:26:29 [INFO]  Riavvia servizio waydroid-container
+09:26:36 [INFO]  Ferma servizio waydroid
+09:26:47 [INFO]  Ferma servizio waydroid-container
+09:27:00 [INFO]  Visualizza configurazione di rete
+09:27:11 [INFO]  Modifica statistiche di rete
+09:27:28 [INFO]  Gestione firewall
+09:27:49 [INFO]  Test di connessione a www.google.com
+09:28:07 [INFO]  Avvio del programma
+09:28:41 [INFO]  Visualizza log opzione 1
+09:28:45 [INFO]  Visualizza log opzione 2
+09:28:47 [INFO]  Visualizza log opzione 3
+09:28:56 [INFO]  Visualizza log opzione 5
+09:29:01 [INFO]  Visualizza log opzione 5
+09:29:07 [INFO]  Visualizza log opzione 6
+09:30:06 [INFO]  Avvio del programma
+09:31:39 [INFO]  Visualizza log opzione 5
+09:31:49 [INFO]  Visualizza log opzione 6
+09:31:52 [INFO]  Visualizza log opzione 2
+09:32:42 [INFO]  Avvio del programma
+09:32:48 [INFO]  Visualizza log opzione 6
+09:32:51 [INFO]  Visualizza log opzione 5
+09:32:53 [INFO]  Visualizza log opzione 4
+09:33:19 [INFO]  Controlla file system /dev/sdX1
+09:33:40 [INFO]  Monitoraggio Utenti
+09:33:42 [INFO]  Monitoraggio Servizi
+09:33:44 [INFO]  Monitoraggio Rete
+09:33:45 [INFO]  Monitoraggio Disco
+09:33:46 [INFO]  Monitoraggio RAM
+09:33:47 [INFO]  Monitoraggio CPU
+09:33:55 [INFO]  Monitoraggio Rete
+09:34:13 [INFO]  Sessione opzione 6
+09:35:18 [INFO]  Sessione opzione 6
+09:35:54 [INFO]  Visualizza utenti
+09:36:20 [INFO]  Visualizza statistiche di rete
+09:36:49 [INFO]  Avvio del programma
+09:36:58 [INFO]  Visualizza statistiche di rete
+09:38:06 [INFO]  Visualizza stato della rete

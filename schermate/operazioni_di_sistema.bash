@@ -25,7 +25,7 @@ function operazioni_log() {
             "q) Back" \
             "$(con_grassetto "====================================")"
 
-        read -rp "Scegli [1-7,q]: " choice
+        read -rp "Scegli [1-6,q]: " choice
         case "$choice" in
         1 | visualizza_log_di_sistema)
             clear
@@ -58,7 +58,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        5 | visualizza_log_di_rete)
+        4 | visualizza_log_di_rete)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -73,7 +73,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        6 | visualizza_log_dei_pacchetti)
+        5 | visualizza_log_dei_pacchetti)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
@@ -84,7 +84,7 @@ function operazioni_log() {
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
-        7 | visualizza_log_dei_servizi)
+        6 | visualizza_log_dei_servizi)
             clear
             printlines "" \
                 "$(con_grassetto "====================================")" \

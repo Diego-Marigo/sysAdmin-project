@@ -99,4 +99,3 @@ function gestione_servizi() {
         read -rp "Premi INVIO per tornare indietro..."
     done
 }
-

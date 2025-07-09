@@ -1,4 +1,4 @@
-function gestione_utenti(){
+function gestione_utenti() {
     while true; do
         clear
         printlines "" \
@@ -8,8 +8,8 @@ function gestione_utenti(){
             "1) Aggiungi utente" \
             "2) Modifica nome utente" \
             "3) Modifica password" \
-            "4) Modifica gruppo" \
-            "5) Modifica permessi" \
+            "4) Modifica gruppo principale" \
+            "5) Aggiungi utente a gruppo" \
             "6) Modifica scadenza password" \
             "7) Modifica scadenza account" \
             "8) Modifica stato account" \
@@ -21,17 +21,22 @@ function gestione_utenti(){
         read -rp "Seleziona un'opzione [1-10,q]: " user_choice
         case $user_choice in
         1 | aggiungi_utente)
-            clear 
+            clear
             printlines "" \
                 "$(con_grassetto "====================================")" \
                 "$(con_grassetto "        AGGIUNGI UTENTE")" \
                 "$(con_grassetto "====================================")"
 
             read -rp "Inserisci il nome del nuovo utente: " nome_utente
+            if id "$nome_utente" &>/dev/null; then
+                echo "❌ Utente '$nome_utente' già esistente."
+                sleep 1
+                continue
+            fi
             sudo useradd "$nome_utente" && sudo passwd "$nome_utente"
             registra_info "Aggiungi utente $nome_utente"
             println "$(come_successo "Utente $nome_utente aggiunto con successo.")"
-            
+
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
@@ -41,11 +46,24 @@ function gestione_utenti(){
                 "$(con_grassetto "====================================")" \
                 "$(con_grassetto "        MODIFICA NOME UTENTE")" \
                 "$(con_grassetto "====================================")"
-            
+
             read -rp "Inserisci il nome dell'utente da modificare: " nome_utente
+            if ! id "$nome_utente" &>/dev/null; then
+                print "$(come_errore "Utente $nome_utente non trovato")"
+                sleep 1
+                continue
+            fi
+
             read -rp "Inserisci il nuovo nome per l'utente $nome_utente: " nuovo_nome_utente
+            if id "$nuovo_nome_utente" &>/dev/null; then
+                print "$(come_errore "Utente $nuovo_nome_utente già esistente")"
+                sleep 1
+                continue
+            fi
+
             sudo usermod -l "$nuovo_nome_utente" "$nome_utente"
             registra_info "Modifica utente $nome_utente in $nuovo_nome_utente"
+            print "$(come_info "Utente rinominato!")"
 
             sleep 1
             printlines "$(con_grassetto "====================================")"
@@ -59,9 +77,9 @@ function gestione_utenti(){
 
             read -rp "Inserisci il nome dell'utente di cui modificare la password: " nome_utente
             read -rp "Inserisci la nuova password per l'utente $nome_utente: " password_utente
-            sudo chpasswd <<< "$nome_utente:$password_utente"
+            sudo chpasswd <<<"$nome_utente:$password_utente"
             registra_info "Modifica password utente $nome_utente"
-            
+
             sleep 1
             printlines "$(con_grassetto "====================================")"
             ;;
@@ -158,9 +176,9 @@ function gestione_utenti(){
                 "$(con_grassetto "        ELIMINA UTENTE")" \
                 "$(con_grassetto "====================================")"
             println "$(come_avviso "Attenzione: questa operazione richiede i privilegi di root.")"
-                sudo userdel -r "$nome_utente"
-                registra_info "Elimina utente $nome_utente (con home directory)"
-                println "$(come_successo "Utente $nome_utente e la sua home directory sono stati eliminati con successo.")"
+            sudo userdel -r "$nome_utente"
+            registra_info "Elimina utente $nome_utente (con home directory)"
+            println "$(come_successo "Utente $nome_utente e la sua home directory sono stati eliminati con successo.")"
             read -rp "Sei sicuro di voler eliminare l'utente $nome_utente? [y/N]: " conferma
 
             if [[ $conferma == [yY] ]]; then
@@ -188,14 +206,14 @@ function gestione_utenti(){
             printlines "$(con_grassetto "====================================")"
             ;;
         q | Q)
-            schermata_principale
+            break
             ;;
         *)
             println "$(come_errore "\nOpzione non valida")"
             sleep .5
-            gestione_utenti
             ;;
         esac
         read -rp "Premi INVIO per tornare indietro..."
     done
 }
+
