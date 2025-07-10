@@ -389,9 +389,9 @@ operazioni specifiche. Gli argomenti disponibili sono:
   eventuali problemi.
 - `--help` | `-h`: Mostra l'elenco dei comandi disponibili e una breve
   descrizione.
-  - `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per
+- `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per
   ambienti che non supportano la colorazione del testo o per una visualizzazione
   più semplice.
-  - `--registro` | `-r`: Imposta il file di log da utilizzare per le
+- `--registro` | `-r`: Imposta il file di log da utilizzare per le
   registrazioni. Se non specificato, il file predefinito è `./log.txt`.
 - `--version` | `-v`: Mostra la versione corrente del programma.
