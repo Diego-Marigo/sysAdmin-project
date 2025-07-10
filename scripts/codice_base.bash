@@ -49,6 +49,10 @@ function requisiti() {
             println "$(come_errore "Requisiti di sistema non soddisfatti: comando $type mancante.")"
         fi
         return 1
+    else
+        if [[ "$check" == "check" ]]; then
+            println "Requisiti di sistema soddisfatti: comando $type trovato."
+        fi
     fi
     return 0
 }
