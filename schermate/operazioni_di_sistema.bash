@@ -1,10 +1,8 @@
 function operazioni_log() {
-    # PREREQUISITO: essere in un sistema con systemd!
-    if ! command -v journalctl &>/dev/null; then
-        printlines \
-            "$(come_errore "Questo script richiede systemd per funzionare.")" \
-            "$(come_avviso "Impossibile proseguire senza journalctl")"
-        sleep 1.5
+    # PREREQUISITI:
+    # - journalctl: per visualizzare i log di sistema
+    # - tail: per visualizzare i log dei pacchetti
+    if ! requisiti journalctl || ! requisiti tail; then
         return
     fi
 
@@ -14,7 +12,6 @@ function operazioni_log() {
             "$(con_grassetto "====================================")" \
             "$(con_grassetto "      VISUALIZZAZIONE LOG")" \
             "$(con_grassetto "====================================")" \
-            "" \
             "Scegli quale registro visualizzare:" \
             "1) Log di sistema" \
             "2) Log di accesso" \
@@ -107,6 +104,13 @@ function operazioni_log() {
 }
 
 function operazioni_sessione() {
+    # PREREQUISITI:
+    # - systemctl: per gestire lo stato del sistema
+    # - loginctl: per gestire le sessioni utente
+    if ! requisiti systemctl || ! requisiti loginctl; then
+        return
+    fi
+
     while true; do
         clear
         printlines "" \

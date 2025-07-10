@@ -1,4 +1,14 @@
 function gestione_utenti() {
+    # PREREQUISITI:
+    # - useradd: per aggiungere utenti
+    # - usermod: per modificare utenti
+    # - chpasswd: per modificare password utenti
+    # - userdel: per eliminare utenti
+    # - chage: per modificare scadenze password e account
+    if ! requisiti useradd || ! requisiti usermod || ! requisiti chpasswd || ! requisiti userdel || ! requisiti chage; then
+        return
+    fi
+    
     while true; do
         clear
         printlines "" \

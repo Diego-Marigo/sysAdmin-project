@@ -1,4 +1,14 @@
 function monitoraggio() {
+    # PREREQUISITI:
+    # - top: per monitorare l'utilizzo della CPU
+    # - free: per monitorare l'utilizzo della RAM
+    # - df: per monitorare lo spazio su disco
+    # - netstat: per monitorare le connessioni di rete
+    # - systemctl: per monitorare i servizi in esecuzione
+    # - who: per monitorare gli utenti connessi
+    if ! requisiti top || ! requisiti free || ! requisiti df || ! requisiti netstat || ! requisiti systemctl || ! requisiti who; then
+        return
+    fi
     while true; do
         clear
         printlines "" \

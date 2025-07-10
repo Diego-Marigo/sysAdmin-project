@@ -65,12 +65,21 @@ function main() {
         "$(come_avviso "Questo programma è destinato ad essere eseguito come root.")" \
         "$(con_grassetto "====================================")" \ ""
 
+    # Controllo dei requisiti di sistema
+    # - programma avviato come root
+    # - sistema operativo Linux Ubuntu/Debian
     if [ "$(id -u)" -eq 0 ]; then
         println "Autenticazione come root riuscita."
     else
         printlines \
             "$(come_errore "Autenticazione come root non riuscita.")" \
             "" \
+            ""
+        exit 1
+    fi
+    if [[ ! -f /etc/debian_version ]]; then
+        printlines \
+            "$(come_errore "Questo programma è destinato a sistemi Debian/Ubuntu.")" \
             ""
         exit 1
     fi

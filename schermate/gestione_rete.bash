@@ -1,6 +1,16 @@
 function gestione_rete(){
+    # PREREQUISITI:
+    # - ip: per gestire la configurazione di rete
+    # - systemctl: per gestire lo stato della rete
+    # - iftop: per visualizzare le statistiche di rete
+    # - ifconfig: per modificare le statistiche di rete
+    # - ufw: per gestire il firewall
+    # - ping: per testare la connessione
+    if ! requisiti ip || ! requisiti systemctl || ! requisiti iftop || ! requisiti ifconfig || ! requisiti ufw || ! requisiti ping; then
+        return
+    fi
+    
     while true; do
-
         clear
         printlines "" \
             "$(con_grassetto "====================================")" \

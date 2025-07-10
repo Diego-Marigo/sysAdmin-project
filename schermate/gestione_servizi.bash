@@ -1,4 +1,10 @@
 function gestione_servizi() {
+    # PREREQUISITI:
+    # - systemctl: per gestire i servizi
+    if ! requisiti systemctl; then
+        return
+    fi
+    
     while true; do
         clear
         printlines "" \

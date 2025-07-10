@@ -1,6 +1,11 @@
 function gestione_pacchetti(){
+    # PREREQUISITI:
+    # - apt: per gestire i pacchetti
+    if ! requisiti apt; then
+        return
+    fi
+    
     while true; do
-
         clear
         printlines "" \
             "$(con_grassetto "====================================")" \
