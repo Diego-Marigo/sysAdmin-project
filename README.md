@@ -381,15 +381,17 @@ sudo apt install -y \
 Lo script principale `eseguibile.bash` accetta diversi argomenti per eseguire
 operazioni specifiche. Gli argomenti disponibili sono:
 
-- `--help` | `-h`: Mostra l'elenco dei comandi disponibili e una breve
-  descrizione.
-- `--version` | `-v`: Mostra la versione corrente del programma.
-- `--registro` | `-r`: Imposta il file di log da utilizzare per le
-  registrazioni. Se non specificato, il file predefinito è `./log.txt`.
+- `--check` | `-c`: Controlla i requisiti di sistema e verifica che il sistema
+  sia pronto per l'esecuzione del programma. Se i requisiti non sono soddisfatti,
+  il programma fornisce un messaggio di errore e termina l'esecuzione.
 - `--debug` | `-d`: Abilita la modalità di debug, mostrando informazioni
   dettagliate sull'esecuzione del programma. Utile per identificare e risolvere
   eventuali problemi.
-- `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per
+- `--help` | `-h`: Mostra l'elenco dei comandi disponibili e una breve
+  descrizione.
+  - `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per
   ambienti che non supportano la colorazione del testo o per una visualizzazione
   più semplice.
-
+  - `--registro` | `-r`: Imposta il file di log da utilizzare per le
+  registrazioni. Se non specificato, il file predefinito è `./log.txt`.
+- `--version` | `-v`: Mostra la versione corrente del programma.
