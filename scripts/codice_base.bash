@@ -39,11 +39,15 @@ function ha_genitore_accessibile() {            # Controlla se il file genitore 
 
 function requisiti() {
     local type="$1"
+    local check="$2"
     if ! command -v "$type" &>/dev/null; then
-        printlines \
-            "$(come_errore "Errore: requisiti di sistema non soddisfatti.")" \
-            "$(come_avviso "Impossibile proseguire senza comando $type.")"
-        sleep 2
+        if [[ ! "$check" == "check" ]]; then
+            println "$(come_errore "Errore: requisiti di sistema non soddisfatti.")"
+            println "$(come_avviso "Impossibile proseguire senza comando $type.")"
+            sleep 2
+        else
+            println "$(come_errore "Requisiti di sistema non soddisfatti: comando $type mancante.")"
+        fi
         return 1
     fi
     return 0

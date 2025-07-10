@@ -17,17 +17,67 @@ source_or_stop "${file_dir}/registrazioni.bash"
 
 # Librerie delle schermate
 source_or_stop "${file_dir}/../schermate/schermate.bash"
+
 function main() {
     # Processione degli argomenti
     while [[ $# -gt 0 ]]; do # while len(args) > 0:
-        case $1 in           #     match args[0]
+        case $1 in 
+        -c | --check)
+            printlines "" \
+                "$(con_grassetto "========================================")" \
+                "$(con_grassetto "          Controllo Requisiti")" \
+                "$(con_grassetto "========================================")" \
+                "$(come_avviso "Controllo dei requisiti di sistema in corso...")" \
+                ""
+
+            if [[ -f /etc/debian_version ]]; then
+                println "Sistema operativo Debian/Ubuntu rilevato."
+            else
+                println "$(come_errore "Questo programma è destinato a sistemi Debian/Ubuntu.")"
+            fi
+            if [[ "$(id -u)" -eq 0 ]]; then
+                println "Autenticazione come root riuscita."
+            else
+                println "$(come_errore "Autenticazione come root non riuscita.")"
+            fi
+
+            requisiti fdisk check
+            requisiti mkfs check
+            requisiti fsck check
+            requisiti rsync check
+            requisiti apt check
+            requisiti ip check
+            requisiti systemctl check
+            requisiti iftop check
+            requisiti ifconfig check
+            requisiti ufw check
+            requisiti ping check
+            requisiti useradd check
+            requisiti usermod check
+            requisiti chpasswd check
+            requisiti userdel check
+            requisiti chage check
+            requisiti top check
+            requisiti free check
+            requisiti df check
+            requisiti netstat check
+            requisiti systemctl check
+            requisiti who check
+            requisiti journalctl check
+            requisiti tail check
+            requisiti loginctl check
+            println "$(con_grassetto "========================================")"
+            exit 0
+            ;;
+        -d | --debug)
+            export DEBUG=1
+            ;;          
         -h | --help)
             schermata_manuale
             exit 0
             ;;
-        -v | --version)
-            println "${versione}"
-            exit 0
+        --no-color)
+            export NO_COLOR=1
             ;;
         -r | --registro)
             shift
@@ -35,11 +85,10 @@ function main() {
             ha_genitore_accessibile "${registro}" || exit 1
             export registro
             ;;
-        -d | --debug)
-            export DEBUG=1
-            ;;
-        --no-color)
-            export NO_COLOR=1
+        -v | --version)
+            println "$(con_grassetto "Versione:") ${versione}"
+            println "$(con_grassetto "Autori:") ${autori}"
+            exit 0
             ;;
         *)
             ARGS+=("$1")
