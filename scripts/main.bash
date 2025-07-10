@@ -71,19 +71,17 @@ function main() {
     if [ "$(id -u)" -eq 0 ]; then
         println "Autenticazione come root riuscita."
     else
-        printlines \
-            "$(come_errore "Autenticazione come root non riuscita.")" \
-            "" \
-            ""
+        println "$(come_errore "Autenticazione come root non riuscita.")"
         exit 1
     fi
-    if [[ ! -f /etc/debian_version ]]; then
-        printlines \
-            "$(come_errore "Questo programma è destinato a sistemi Debian/Ubuntu.")" \
-            ""
+    if [[ -f /etc/debian_version ]]; then
+        println "Sistema operativo Debian/Ubuntu rilevato."
+    else
+        println "$(come_errore "Questo programma è destinato a sistemi Debian/Ubuntu.")"
         exit 1
     fi
 
+    println ""
     read -rp "Premi INVIO per continuare..."
     schermata_principale
 }

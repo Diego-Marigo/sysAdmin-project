@@ -42,7 +42,7 @@ function requisiti() {
     if ! command -v "$type" &>/dev/null; then
         printlines \
             "$(come_errore "Errore: requisiti di sistema non soddisfatti.")" \
-            "$(come_avviso "Impossibile proseguire senza $type.")"
+            "$(come_avviso "Impossibile proseguire senza comando $type.")"
         sleep 2
         return 1
     fi
