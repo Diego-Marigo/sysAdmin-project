@@ -69,9 +69,6 @@ function main() {
             println "$(con_grassetto "========================================")"
             exit 0
             ;;
-        -d | --debug)
-            export DEBUG=1
-            ;;          
         -h | --help)
             schermata_manuale
             exit 0
@@ -79,7 +76,7 @@ function main() {
         --no-color)
             export NO_COLOR=1
             ;;
-        -r | --registro)
+        -r | --register)
             shift
             registro="$1"
             ha_genitore_accessibile "${registro}" || exit 1

@@ -23,7 +23,6 @@ manutenzione e la comprensione._
 
 > ⚠️**Requisiti di sistema**: Questo programma è stato sviluppato per ambienti
 > **Ubuntu/Debian** e si appoggia:
->
 > - alla gestione dei pacchetti tramite **apt**;
 > - al controllo dei servizi tramite **systemd** (comando systemctl).
 > - al logging centralizzato di **systemd-journald** (comando journalctl);
@@ -329,6 +328,16 @@ Pacchetti utilizzati all'interno del programma:
 - `usermod`: Per modificare le informazioni degli utenti.
 - `who`: Per visualizzare gli utenti connessi al sistema.
 
+#### **Controllo dei requisiti di sistema**
+Per verificare che il sistema soddisfi i requisiti necessari per l'esecuzione del
+programma, è possibile utilizzare lo script `eseguibile.bash` con l'argomento
+`--check` o `-c`. Questo script controllerà la presenza dei pacchetti
+necessari e fornirà un messaggio di errore se uno o più pacchetti non sono
+presenti sul sistema.
+```bash
+sudo ./eseguibile.bash --check
+```
+
 #### **Installazione dei requisiti**
 
 Assicurarsi di avere installato i seguenti pacchetti sul sistema:
@@ -384,14 +393,11 @@ operazioni specifiche. Gli argomenti disponibili sono:
 - `--check` | `-c`: Controlla i requisiti di sistema e verifica che il sistema
   sia pronto per l'esecuzione del programma. Se i requisiti non sono soddisfatti,
   il programma fornisce un messaggio di errore e termina l'esecuzione.
-- `--debug` | `-d`: Abilita la modalità di debug, mostrando informazioni
-  dettagliate sull'esecuzione del programma. Utile per identificare e risolvere
-  eventuali problemi.
 - `--help` | `-h`: Mostra l'elenco dei comandi disponibili e una breve
   descrizione.
 - `--no-color`: Disabilita l'uso dei colori nell'output del programma, utile per
   ambienti che non supportano la colorazione del testo o per una visualizzazione
   più semplice.
-- `--registro` | `-r`: Imposta il file di log da utilizzare per le
+- `--register` | `-r`: Imposta il file di log da utilizzare per le
   registrazioni. Se non specificato, il file predefinito è `./log.txt`.
 - `--version` | `-v`: Mostra la versione corrente del programma.
